@@ -7,7 +7,9 @@ export const LogoMegaK = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 30px;
-  width: 124px;
-  height: 76px;
+  min-width: 120px;
+  min-height: 75px;
+  width: 10vw;
+  height: 7vw;
   
 `

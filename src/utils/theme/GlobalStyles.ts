@@ -10,6 +10,7 @@ body{
   padding:0;
   box-sizing: border-box;
   background-color: #222224;
+  overflow: hidden;
 }
 
 `

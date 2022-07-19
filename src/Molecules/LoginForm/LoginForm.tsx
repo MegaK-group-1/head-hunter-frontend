@@ -11,7 +11,7 @@ const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 350px;
+  max-width: 90%;
   padding: 15px;
 
 `
