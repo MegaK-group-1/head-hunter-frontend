@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "types": ["styled-components-react-native"],
     "target": "es6",
