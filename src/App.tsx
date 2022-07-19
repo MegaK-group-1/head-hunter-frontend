@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import {Wrapper} from "./Atoms/Wrapper/Wrapper";
+import {Route, Routes} from "react-router-dom";
+import {HomePage} from "./Pages/HomePage/HomePage";
 
 function App() {
-  return (
-      <>
-   <Wrapper>
+    return (
+        <>
+            <Routes>
+                <Route path={'/home'} element={<HomePage/>} />
 
-   </Wrapper>
-      </>
-  );
+            </Routes>
+        </>
+    );
 }
 
 export default App;
