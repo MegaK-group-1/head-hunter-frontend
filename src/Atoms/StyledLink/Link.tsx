@@ -1,25 +1,30 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 
 interface Props {
     children: string;
-    href: string;
+    to: string;
     align:string;
-    decoration?:boolean
+    underline?: string
 }
 
-export const StyledA = styled.a<Props>`
+export const StylesLink = styled(Link)<Props>`
 
   color: white;
   align-self:${(props)=> props.align} ;
-  text-decoration: ${(props)=> props.decoration? "underline" : "none"};
+  text-decoration: ${(props)=> props.underline? props.underline : "none"};
   
 `
-
 
 export const StyledLink = (props:Props)=>{
 
     return(
-        <StyledA decoration={props.decoration} align={props.align} href={props.href} >{props.children}</StyledA>
+        <StylesLink
+            underline={props.underline}
+            align={props.align}
+            to={props.to}
+        >{props.children}
+        </StylesLink>
     )
 }
