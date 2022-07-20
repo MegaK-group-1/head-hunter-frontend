@@ -15,6 +15,13 @@ const StyledButton = styled.button<Props>`
   text-align: center;
   border: none;
   align-self: center;
+  transition: .2s linear;
+
+  :hover {
+    box-shadow: 0 0 1px 1px white;
+    cursor: pointer;
+
+  }
 
 
 `
