@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from '../assets/images/LogoMegaK.png'
+import Logo from '../../assets/images/LogoMegaK.png'
 
 export const LogoMegaK = styled.div`
 
