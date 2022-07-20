@@ -1,5 +1,5 @@
 import React from "react";
-import {HomePageTemplate} from "../../components/Templates/HomePageTemplate";
+import {HomePageTemplate} from "../../components/Organism/HomePageTemplate";
 
 export const HomePage = () => {
 
