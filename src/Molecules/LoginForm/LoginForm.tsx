@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import {Input} from "../../Atoms/Input/Input";
-import {StyledLink} from "../../Atoms/StyledLink/Link";
 import React from "react";
-import {LoginButton} from "../../Atoms/LoginButton/LoginButton";
-import {Paragraph} from "../../Atoms/Paragraph/Paragraph";
+import styled from "styled-components";
+import {Input} from "../../Atoms/Input";
+import {StyledLink} from "../../Atoms/Link";
+import {Button} from "../../Atoms/Button";
+import {Paragraph} from "../../Atoms/Paragraph";
 
 
 const StyledForm = styled.form`
@@ -33,16 +33,17 @@ export const LoginForm = () => {
 
         <StyledForm>
             <Input
-                type={"email"}
-                placeholder={"E-mail"}/>
+                type="email"
+                placeholder="E-mail"/>
 
             <Input
-                type={"password"}
-                placeholder={"Hasło"}/>
+                type="password"
+                autoComplete="on"
+                placeholder="Hasło"/>
 
             <StyledLink
-                align={"flex-end"}
-                to={'/password-reset'}>
+                align="flex-end"
+                to='/password-reset'>
                 Zapomniałeś Hasła?
             </StyledLink>
 
@@ -50,13 +51,13 @@ export const LoginForm = () => {
 
                 <Paragraph>Nie masz konta?</Paragraph>
                 <StyledLink
-                    underline={"true"}
-                    align={"center"}
-                    to={'/register'}>
+                    decoration="underline"
+                    align="center"
+                    to='/register'>
                     Zarejestruj się
                 </StyledLink>
 
-                <LoginButton/>
+                <Button>Zaloguj się</Button>
             </PositionWrapper>
 
         </StyledForm>

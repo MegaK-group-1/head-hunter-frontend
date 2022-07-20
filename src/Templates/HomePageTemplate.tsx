@@ -1,5 +1,5 @@
 import React from "react";
-import {HomePageOrganism} from "../../Organisms/HomePageOrganism/HomePageOrganism";
+import {HomePageOrganism} from "../Organisms/HomePageOrganism";
 
 export const HomePageTemplate = () => {
 
