@@ -1,35 +1,36 @@
-import React from "react";
-import styled from "styled-components";
+import React, {MouseEventHandler} from 'react'
+import styled from 'styled-components'
 
 interface Props {
     children: string
     long?: boolean
+    onClick?: MouseEventHandler;
 
 }
 
 const StyledButton = styled.button<Props>`
-  width: ${({long}) => long ? "140px" : "100px"};
-  height: 40px;
+  width: ${({long}) => (long ? '200px' : '100px')};
+  height: 39px;
   background-color: #e12735;
   color: white;
   text-align: center;
   border: none;
   align-self: center;
-  transition: .2s linear;
+  transition: 0.2s linear;
 
   :hover {
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
-
   }
-
-
 `
 
 export const Button = (props: Props) => {
-    const {long, children} = props
+
+    const {long, children, onClick} = props
 
     return (
-        <StyledButton long={long}>{children}</StyledButton>
+        <StyledButton onClick={onClick} long={long}>
+            {children}
+        </StyledButton>
     )
 }
