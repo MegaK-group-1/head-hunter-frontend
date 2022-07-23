@@ -1,10 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import {Input} from "../../Atoms/Input";
-import {StyledLink} from "../../Atoms/Link";
-import {Button} from "../../Atoms/Button";
-import {Paragraph} from "../../Atoms/Paragraph";
-
+import React, { FormEvent } from 'react'
+import styled from 'styled-components'
+import { Input } from '../../Atoms/Input'
+import { StyledLink } from '../../Atoms/Link'
+import { Button } from '../../Atoms/Button'
+import { Paragraph } from '../../Atoms/Paragraph'
 
 const StyledForm = styled.form`
   display: flex;
@@ -13,53 +12,40 @@ const StyledForm = styled.form`
   flex-direction: column;
   max-width: 90%;
   padding: 15px;
-
 `
 
 const PositionWrapper = styled.div`
   width: 100%;
-  height: 50px;
-  padding: 20px;
+  padding: 25px 5px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
 `
 
-
 export const LoginForm = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    console.log('Click test')
+  }
+  return (
+    <StyledForm onSubmit={handleSubmit}>
+      <Input type='email' placeholder='E-mail' />
 
-    return (
+      <Input type='password' autoComplete='on' placeholder='Hasło' />
 
-        <StyledForm>
-            <Input
-                type="email"
-                placeholder="E-mail"/>
+      <StyledLink align='flex-end' to='/password-reset'>
+        Zapomniałeś Hasła?
+      </StyledLink>
 
-            <Input
-                type="password"
-                autoComplete="on"
-                placeholder="Hasło"/>
+      <PositionWrapper>
+        <Paragraph>Nie masz konta?</Paragraph>
+        <StyledLink decoration='underline' align='center' to='/register'>
+          Zarejestruj się
+        </StyledLink>
 
-            <StyledLink
-                align="flex-end"
-                to='/password-reset'>
-                Zapomniałeś Hasła?
-            </StyledLink>
-
-            <PositionWrapper>
-
-                <Paragraph>Nie masz konta?</Paragraph>
-                <StyledLink
-                    decoration="underline"
-                    align="center"
-                    to='/register'>
-                    Zarejestruj się
-                </StyledLink>
-
-                <Button>Zaloguj się</Button>
-            </PositionWrapper>
-
-        </StyledForm>
-    )
+        <Button>Zaloguj się</Button>
+      </PositionWrapper>
+    </StyledForm>
+  )
 }
