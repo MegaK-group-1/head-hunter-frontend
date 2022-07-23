@@ -1,16 +1,16 @@
-import {createGlobalStyle} from "styled-components";
-import  '../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf'
+import { createGlobalStyle } from 'styled-components'
+import '../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf'
 export const GlobalStyle = createGlobalStyle`
-body{
-  margin:0 auto;
-  padding:0;
-  box-sizing: border-box;
-  background-color: #222224;
-  overflow: hidden;
-}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Catamaran,sans-serif;
+  }
+  body {
+    background-color: #222224;
+    width: 100vw;
+    height: 100vh
+  }
   
-html{
-  font-family: Caterman,sans-serif;
-}
-
 `
