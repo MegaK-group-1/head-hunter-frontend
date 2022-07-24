@@ -5,6 +5,7 @@ import {FaStar} from 'react-icons/fa'
 interface Props {
   id: number;
   rate: string;
+  rated: string;
   onClick?: (id: number, rate: string) => void;
 }
 
@@ -38,23 +39,59 @@ const StyledRatingVal = styled.div`
   }
 
 `
+
+ const StyledRatingValSelected = styled.div`
+
+  height: 27px;
+  width: 42px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E02735;
+
+  :hover {
+   color: #F7F7F7;
+ }
+
+`
+
 export const Star = (props: Props) => {
-
-  const { rate, id } = props;
-
+  
+  const { rate, rated, id } = props;
+  
   const handleOnClick = () => {
-
+    
     if (props.onClick) {
-
+      
       props.onClick(id, rate);
+      
     }
-
+    
   }
+  
+  let show;
 
-  return (
-    <StyledRatingVal onClick={handleOnClick}>
+  if (rated && rated === rate) {
+
+    show = <StyledRatingValSelected onClick={handleOnClick}>
+      <p>{rate}</p>
+      <StarRed />
+    </StyledRatingValSelected>
+
+  } else {
+
+    show = <StyledRatingVal onClick={handleOnClick}>
       <p>{rate}</p>
       <StarRed />
     </StyledRatingVal>
+
+  }
+  
+  return (
+    <>
+      {show}
+    </>
   )
+    
 };
