@@ -9,8 +9,10 @@ interface Props {
 }
 
 const StyledButton = styled.button<Props>`
-  width: ${({long}) => (long ? '200px' : '100px')};
+  width: ${({long}) => (long ? '220px' : '110px')};
   height: 39px;
+  font-size: 1rem;
+  letter-spacing: 2px;
   background-color: #e12735;
   color: white;
   text-align: center;
