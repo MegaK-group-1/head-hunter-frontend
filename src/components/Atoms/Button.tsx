@@ -3,15 +3,20 @@ import styled from 'styled-components'
 
 interface Props {
     children: string
-    long?: boolean
     onClick?: MouseEventHandler;
+    size: ButtonSize
 
 }
 
+export enum ButtonSize{
+    small= '100px',
+    medium = '140px',
+    big = '200px',
+}
+
 const StyledButton = styled.button<Props>`
-  width: ${({long}) => (long ? '220px' : '110px')};
+  width: ${({size})=> size};
   height: 39px;
-  font-size: 1rem;
   letter-spacing: 2px;
   background-color: #e12735;
   color: white;
@@ -28,10 +33,10 @@ const StyledButton = styled.button<Props>`
 
 export const Button = (props: Props) => {
 
-    const {long, children, onClick} = props
+    const {children, onClick, size} = props
 
     return (
-        <StyledButton onClick={onClick} long={long}>
+        <StyledButton onClick={onClick} size={size}>
             {children}
         </StyledButton>
     )

@@ -1,9 +1,9 @@
-import React, { FormEvent } from 'react'
+import React, {FormEvent} from 'react'
 import styled from 'styled-components'
-import { Input } from '../../Atoms/Input'
-import { StyledLink } from '../../Atoms/Link'
-import { Button } from '../../Atoms/Button'
-import { Paragraph } from '../../Atoms/Paragraph'
+import {Input} from '../../Atoms/Input'
+import {StyledLink} from '../../Atoms/Link'
+import {Button, ButtonSize} from '../../Atoms/Button'
+import {Paragraph} from '../../Atoms/Paragraph'
 
 const StyledForm = styled.form`
   display: flex;
@@ -44,7 +44,7 @@ export const LoginForm = () => {
           Zarejestruj się
         </StyledLink>
 
-        <Button>Zaloguj się</Button>
+        <Button size={ButtonSize.small}>Zaloguj się</Button>
       </PositionWrapper>
     </StyledForm>
   )
