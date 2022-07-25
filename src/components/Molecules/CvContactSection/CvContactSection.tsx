@@ -4,7 +4,7 @@ import {HeadTitle} from '../../Atoms/HeadTitle'
 import {GithubHyperlink} from '../../Atoms/GithubHyperlink'
 import {TelHyperlink} from '../../Atoms/TelHyperlink'
 import {MailHyperlink} from '../../Atoms/MailHyperlink'
-import {Button} from '../../Atoms/Button'
+import {Button, ButtonSize} from '../../Atoms/Button'
 import {Container} from './CvSectionAtoms/Container'
 import {Positioner} from './CvSectionAtoms/Positioner'
 import {UnderTitle} from '../../Atoms/UnderTitle'
@@ -35,8 +35,8 @@ export const CvContactSection = () => {
             </Positioner>
 
             <Positioner>
-                <Button onClick={() => console.log('ok')} long>Brak Zainteresowania</Button>
-                <Button onClick={() => console.log('ok')} long>Zatrudniony</Button>
+                <Button size={ButtonSize.big} onClick={() => console.log('ok')} >Brak Zainteresowania</Button>
+                <Button size={ButtonSize.big} onClick={() => console.log('ok')} >Zatrudniony</Button>
             </Positioner>
         </Container>
     )

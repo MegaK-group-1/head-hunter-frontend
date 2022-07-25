@@ -22,3 +22,4 @@ export const Avatar = (props: Props) => {
         <Img src={src} big={big}/>
     )
 }
+
