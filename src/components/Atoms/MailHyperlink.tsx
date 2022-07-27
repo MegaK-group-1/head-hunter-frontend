@@ -11,6 +11,12 @@ interface Props {
 const StyledHyperLink = styled(Hyperlink)`
   color: #f7f7f7;
   justify-content: flex-start;
+  max-width: 100%;
+  padding-left: 10px;
+  transition: .2s linear;
+  :hover{
+    color: yellowgreen;
+  }
 `;
 
 const MailIcon = styled(IoMailSharp)`
