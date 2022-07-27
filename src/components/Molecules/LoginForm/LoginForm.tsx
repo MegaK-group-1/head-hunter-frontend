@@ -21,6 +21,7 @@ const PositionWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  gap: 5px;
 `
 
 export const LoginForm = () => {
@@ -44,7 +45,7 @@ export const LoginForm = () => {
           Zarejestruj się
         </StyledLink>
 
-        <Button size={ButtonSize.small}>Zaloguj się</Button>
+        <Button width='20%' size={ButtonSize.small}>Zaloguj się</Button>
       </PositionWrapper>
     </StyledForm>
   )
