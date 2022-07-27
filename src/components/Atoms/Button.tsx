@@ -4,7 +4,8 @@ import styled from 'styled-components'
 interface Props {
     children: string
     onClick?: MouseEventHandler;
-    size: ButtonSize
+    size: ButtonSize;
+    width?: string;
 
 }
 
@@ -15,7 +16,8 @@ export enum ButtonSize{
 }
 
 const StyledButton = styled.button<Props>`
-  width: ${({size})=> size};
+  min-width: ${({size})=> size};
+  width: ${({width})=> width};
   height: 39px;
   letter-spacing: 2px;
   background-color: #e12735;
@@ -33,10 +35,10 @@ const StyledButton = styled.button<Props>`
 
 export const Button = (props: Props) => {
 
-    const {children, onClick, size} = props
+    const {children, onClick, size, width} = props
 
     return (
-        <StyledButton onClick={onClick} size={size}>
+        <StyledButton width={width} onClick={onClick} size={size}>
             {children}
         </StyledButton>
     )
