@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -12,7 +11,10 @@ interface Props {
 export const StylesLink = styled(Link)<Props>`
   color: white;
   align-self: ${({ align }) => align};
-  text-decoration: ${({ decoration }) => decoration ?? "none"};
+  text-decoration: ${({ decoration }) => decoration || "none"};
+  @media (max-width: 600px) {
+    font-size: 0.9em;
+  }
 `;
 
 export function StyledLink(props: Props) {

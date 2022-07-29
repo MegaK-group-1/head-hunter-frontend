@@ -38,13 +38,13 @@ export function CvContactSection() {
 
       <Positioner>
         <Button
-          onCLick={() => true}
+          onClick={() => true}
           long
         >
           Brak Zainteresowania
         </Button>
         <Button
-          onCLick={() => true}
+          onClick={() => true}
           long
         >
           Zatrudniony

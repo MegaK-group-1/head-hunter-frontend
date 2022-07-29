@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Paragraph = styled.p`
-  color: white;
-  text-align: center;
+  color: #f7f7f7;
+  @media (max-width: 600px) {
+    font-size: 0.9em;
+  }
 `;

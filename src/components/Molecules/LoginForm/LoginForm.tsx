@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import styled from "styled-components";
 import { Input } from "../../Atoms/Input";
 import { StyledLink } from "../../Atoms/Link";
@@ -16,17 +16,20 @@ const StyledForm = styled.form`
 
 const PositionWrapper = styled.div`
   width: 100%;
-  height: 50px;
-  padding: 20px;
+  padding: 25px 5px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
 `;
 
 export function LoginForm() {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log("Click test");
+  };
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
       <Input
         type="email"
         placeholder="E-mail"
