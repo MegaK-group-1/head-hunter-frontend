@@ -11,7 +11,9 @@ export const Input = styled.input<Props>`
   height: 40px;
   background: ${({ dark }) => (dark ? "#1E1E1F" : "#292a2b")};
   border: none;
-  margin: 8px;
+  margin :8px;
   padding: 2px 0 2px 15px;
   color: white;
 `;
+
+`
