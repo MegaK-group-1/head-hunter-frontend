@@ -1,9 +1,10 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 
 interface Props {
   children: string;
   long?: boolean;
+  onCLick?: MouseEventHandler;
 }
 
 const StyledButton = styled.button<Props>`
@@ -24,7 +25,14 @@ const StyledButton = styled.button<Props>`
 `;
 
 export function Button(props: Props) {
-  const { long, children } = props;
+  const { long, children, onCLick } = props;
 
-  return <StyledButton long={long}>{children}</StyledButton>;
+  return (
+    <StyledButton
+      onClick={onCLick}
+      long={long}
+    >
+      {children}
+    </StyledButton>
+  );
 }
