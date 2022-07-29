@@ -1,5 +1,6 @@
-import {createGlobalStyle} from "styled-components";
-import  '../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf'
+import { createGlobalStyle } from "styled-components";
+import "../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf";
+
 export const GlobalStyle = createGlobalStyle`
 body{
   margin:0 auto;
@@ -13,4 +14,4 @@ html{
   font-family: Caterman,sans-serif;
 }
 
-`
+`;

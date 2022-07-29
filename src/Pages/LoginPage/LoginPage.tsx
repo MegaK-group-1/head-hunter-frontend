@@ -1,9 +1,6 @@
 import React from "react";
-import {LoginPageOrganism} from "../../components/Organism/LoginPageOrganism";
+import { LoginPageOrganism } from "../../components/Organism/LoginPageOrganism";
 
-export const LoginPage = () => {
-
-    return (
-        <LoginPageOrganism/>
-    )
+export function LoginPage() {
+  return <LoginPageOrganism />;
 }

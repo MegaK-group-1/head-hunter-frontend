@@ -9,6 +9,4 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  
-  
-`
+`;
