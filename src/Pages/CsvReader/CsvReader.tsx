@@ -1,27 +1,34 @@
-import React, { CSSProperties } from 'react';
-
+import React, {CSSProperties, useState} from 'react';
+import {Button} from '../../components/Atoms/Button'
+// import {Wrapper} from '../../components/Atoms/Wrapper'
+import {LogoMegaKRT} from '../AdminPage/AdminPage'
 import { useCSVReader } from 'react-papaparse';
+import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #222224;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+`
+
+const AcceptFile = styled.div`
+  color:#fff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  height: 39px;
+  line-height: 2.5rem;
+  padding-left: 10px;
+  width: 40%;
+`
 const styles = {
-    csvReader: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginBottom: 10,
-    } as CSSProperties,
     browseFile: {
         width: '20%',
-    } as CSSProperties,
-    acceptedFile: {
-        color:'#fff',
-        border: '1px solid #ccc',
-        height: 45,
-        lineHeight: 2.5,
-        paddingLeft: 10,
-        width: '80%',
-    } as CSSProperties,
-    remove: {
-        borderRadius: 0,
-        padding: '0 20px',
     } as CSSProperties,
     progressBarBackgroundColor: {
         backgroundColor: 'blue',
@@ -30,15 +37,17 @@ const styles = {
 
 export default function CSVReader() {
     const { CSVReader } = useCSVReader();
+    const [data, setData] = useState([]);
 
     return (
         <CSVReader
             onUploadAccepted={(results: any) => {
-                console.log('---------------------------');
                 console.log(results);
-                console.log('---------------------------');
+                setData(results);
+                return results;
             }}
         >
+
             {({
                   getRootProps,
                   acceptedFile,
@@ -46,18 +55,20 @@ export default function CSVReader() {
                   getRemoveFileProps,
               }: any) => (
                 <>
-                    <div style={styles.csvReader}>
-                        <button type='button' {...getRootProps()} style={styles.browseFile}>
-                            Browse file
-                        </button>
-                        <div style={styles.acceptedFile}>
+
+                    <Wrapper >
+                        <LogoMegaKRT/>
+                        <Button  {...getRootProps()}>
+                            Zaimportuj plik CSV
+                        </Button>
+                        <AcceptFile >
                             {acceptedFile && acceptedFile.name}
-                        </div>
-                        <button {...getRemoveFileProps()} style={styles.remove}>
-                            Remove
-                        </button>
-                    </div>
-                    <ProgressBar style={styles.progressBarBackgroundColor} />
+                            <ProgressBar style={styles.progressBarBackgroundColor} />
+                        </AcceptFile>
+                        <Button {...getRemoveFileProps()}>
+                            Usuń
+                        </Button>
+                    </Wrapper>
                 </>
             )}
         </CSVReader>
