@@ -1,16 +1,7 @@
-import React, {MouseEventHandler, useCallback} from "react";
+import React from "react";
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import Papa from "papaparse";
 import Logo from "../../assets/images/LogoMegaK.png";
-
-interface Props {
-    children: string
-    long?: boolean
-    onClick?: MouseEventHandler;
-
-}
-
 
 
 const Wrapper = styled.div`
@@ -27,7 +18,8 @@ const Wrapper = styled.div`
 gap:2rem;
 }
 `
-const LogoMegaK = styled.div`
+//logo MegaK right-top
+export const LogoMegaKRT = styled.div`
   display: flex;
   position: absolute;
   top: 5rem;
@@ -41,13 +33,18 @@ const LogoMegaK = styled.div`
   width: 10vw;
   height: 7vw;
 `;
-const StyledButton = styled.button<Props>`
-  width: ${({long}) => (long ? '200px' : '100px')};
+
+const NavbarLink = styled(Link)`
+  width:auto;
   height: 39px;
+  padding-left: 15px;
+  padding-right: 15px;
   background-color: #e12735;
   margin-bottom: -500px;
   color: white;
   text-align: center;
+  text-decoration: none;
+  line-height: 39px;
   border: none;
   align-self: center;
   transition: 0.2s linear;
@@ -56,8 +53,8 @@ const StyledButton = styled.button<Props>`
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
   }
-
 `
+
 
 
 
@@ -69,10 +66,9 @@ export const AdminPage = () => {
     return(
 
         <Wrapper>
-            <LogoMegaK />
-            <StyledButton>Dodaj Kursantów</StyledButton>
-             {/*@ts-ignore*/}
-            <StyledButton>Dodaj HR</StyledButton>
+            <LogoMegaKRT />
+            <NavbarLink to='/csv'>Dodaj Kursantów</NavbarLink>
+            <NavbarLink to='' >Dodaj HR</NavbarLink>
         </Wrapper>
     )
 };
