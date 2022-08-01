@@ -1,4 +1,5 @@
-import React, { Children, ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
+import styled from "styled-components";
 
 interface Props {
   labelName: string;
@@ -6,18 +7,31 @@ interface Props {
   children: React.ReactNode;
 }
 
+const StyledRatingElement = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color: #F7F7F7;
+
+  .ratings {
+    display: flex;
+  }
+
+`
+
 export const SingleLabeledOption = (props: Props) => {
 
   const { labelName, options } = props;
     
   return(
     
-    <div className="ratingElement">
-      <p className="label">{labelName}</p>
+    <StyledRatingElement>
+      {labelName}
       <div className="ratings">
         {options}
       </div>
-    </div>
+    </StyledRatingElement>
     
   )
       
