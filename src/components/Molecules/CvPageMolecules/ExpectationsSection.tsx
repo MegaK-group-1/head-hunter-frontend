@@ -65,10 +65,7 @@ export function ExpectationsSection(props: ExpectationsDetails) {
 
           <CvFlexContainer borderR>
             <CvUnderTitle>{UnderTitleOptions.experince}</CvUnderTitle>
-            <CvUnderTitle white>
-              {" "}
-              {commercialProgrammingExperience}
-            </CvUnderTitle>
+            <CvUnderTitle white>{commercialProgrammingExperience}</CvUnderTitle>
           </CvFlexContainer>
         </GridContainer>
       </CvUnderTitleSection>
