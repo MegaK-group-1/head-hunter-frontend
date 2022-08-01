@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import {FaStar} from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 interface Stars {
-    stars?: number
+  stars?: number;
 }
 
 const StarDescription = styled.p`
@@ -16,58 +16,53 @@ const StarDescription = styled.p`
 
   :nth-child(2) {
     font-weight: normal;
-    color: #9E9E9E;
+    color: #9e9e9e;
   }
+`;
 
-`
-
-
-const Stars = styled(FaStar)`
+const GradesStar = styled(FaStar)`
   width: 20px;
   height: 20px;
-  color: #4D4D4D;
+  color: #4d4d4d;
   margin: 1px;
-`
-
+`;
 
 const Positioner = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`
-
+`;
 
 const StarPositioner = styled.div<Stars>`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  
-  > :nth-child(-n +${({stars}) => stars}) {
-    color: #E02735;
-  }
 
-`
+  > :nth-child(-n + ${({ stars }) => stars}) {
+    color: #e02735;
+  }
+`;
 
 interface Props {
-    rating: number
+  rating: number;
 }
 
-export const StarsGradeMolecule = (props: Props) => {
-    const {rating} = props
+export function StarsGradeMolecule(props: Props) {
+  const { rating } = props;
 
-    return (
-        <Positioner>
-            <StarDescription>{rating}</StarDescription>
-            <StarDescription>/5</StarDescription>
-            <StarPositioner stars={rating}>
-                <Stars/>
-                <Stars/>
-                <Stars/>
-                <Stars/>
-                <Stars/>
-            </StarPositioner>
-        </Positioner>
-    )
+  return (
+    <Positioner>
+      <StarDescription>{rating}</StarDescription>
+      <StarDescription>/5</StarDescription>
+      <StarPositioner stars={rating}>
+        <GradesStar />
+        <GradesStar />
+        <GradesStar />
+        <GradesStar />
+        <GradesStar />
+      </StarPositioner>
+    </Positioner>
+  );
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const CvContactContainer = styled.section`
   min-width: 250px;
@@ -11,9 +11,9 @@ export const CvContactContainer = styled.section`
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  overflow:hidden;
-  padding: 15px 0 0 0 ;
-  @media(max-width: 800px){
-    width:300px
+  overflow: hidden;
+  padding: 15px 0 0 0;
+  @media (max-width: 800px) {
+    width: 300px;
   }
-`
+`;

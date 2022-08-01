@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Paragraph = styled.p`
   letter-spacing: 1px;
@@ -7,4 +7,4 @@ export const Paragraph = styled.p`
   @media (max-width: 600px) {
     font-size: 0.9em;
   }
-`
+`;

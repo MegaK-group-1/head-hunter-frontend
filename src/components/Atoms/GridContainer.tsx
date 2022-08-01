@@ -11,15 +11,14 @@ export const GridContainer = styled.div`
   @media (max-width: 1300px) {
     display: grid;
     justify-content: center;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 5px;
     row-gap: 5px;
     justify-items: stretch;
-  };
-
-  @media(max-width: 600px){
-    grid-template-columns:1fr;
   }
 
-`
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+`;

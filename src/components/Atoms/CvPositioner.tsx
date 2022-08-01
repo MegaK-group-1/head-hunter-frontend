@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import { CvContactContainer } from './CvContactContainer'
+import styled from "styled-components";
+import { CvContactContainer } from "./CvContactContainer";
 
 interface Props {
-  height?: string
-  scroll ? : boolean
+  height?: string;
+  scroll?: boolean;
 }
 
 export const CvPositioner = styled(CvContactContainer)<Props>`
@@ -12,10 +12,10 @@ export const CvPositioner = styled(CvContactContainer)<Props>`
   align-items: center;
   height: ${({ height }) => height};
   padding: 10px 20px;
-  overflow-y: ${({scroll})=> scroll? 'scroll' : "hidden"};
-  overflow-x:hidden;
+  overflow-y: ${({ scroll }) => (scroll ? "scroll" : "hidden")};
+  overflow-x: hidden;
 
   ::-webkit-scrollbar {
     width: 1px;
   }
-`
+`;

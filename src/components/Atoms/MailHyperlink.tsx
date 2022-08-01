@@ -13,8 +13,8 @@ const StyledHyperLink = styled(Hyperlink)`
   justify-content: flex-start;
   max-width: 100%;
   padding-left: 10px;
-  transition: .2s linear;
-  :hover{
+  transition: 0.2s linear;
+  :hover {
     color: yellowgreen;
   }
 `;
@@ -23,7 +23,7 @@ const MailIcon = styled(IoMailSharp)`
   color: #4d4d4d;
 `;
 
-export const MailHyperlink = (props: Props) => {
+export function MailHyperlink(props: Props) {
   const { children, href } = props;
 
   return (
@@ -32,4 +32,4 @@ export const MailHyperlink = (props: Props) => {
       {children}
     </StyledHyperLink>
   );
-};
+}
