@@ -5,7 +5,7 @@ import { CvUnderTitleSection } from "../../Atoms/CvUnderTitleSection";
 import { CvExpectations } from "../../../utils/TestUser";
 import { CvFlexContainer } from "../../Atoms/CvFlexContainer";
 import { GridContainer } from "../../Atoms/GridContainer";
-import { CvUnderTitle } from "../../Atoms/CvUnderTitle";
+import { UnderTitle } from "../../Atoms/UnderTitle";
 
 interface ExpectationsDetails {
   userDetails: CvExpectations;
@@ -39,33 +39,75 @@ export function ExpectationsSection(props: ExpectationsDetails) {
       <CvUnderTitleSection flexDirection="row">
         <GridContainer>
           <CvFlexContainer borderR>
-            <CvUnderTitle>{UnderTitleOptions.location}</CvUnderTitle>
-            <CvUnderTitle white>{workPlacePreffer}</CvUnderTitle>
+            <UnderTitle
+              fontWeight="normal"
+              fontSize=".8em"
+              color="#CFCFCF"
+              height="30px"
+            >
+              {UnderTitleOptions.location}
+            </UnderTitle>
+            <UnderTitle>{workPlacePreffer}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <CvUnderTitle>{UnderTitleOptions.city}</CvUnderTitle>
-            <CvUnderTitle white>{prefferCity}</CvUnderTitle>
+            <UnderTitle
+              fontWeight="normal"
+              fontSize=".8em"
+              color="#CFCFCF"
+              height="30px"
+            >
+              {UnderTitleOptions.city}
+            </UnderTitle>
+            <UnderTitle>{prefferCity}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <CvUnderTitle>{UnderTitleOptions.contract}</CvUnderTitle>
-            <CvUnderTitle white>{expectedContractType}</CvUnderTitle>
+            <UnderTitle
+              fontWeight="normal"
+              fontSize=".8em"
+              color="#CFCFCF"
+              height="30px"
+            >
+              {UnderTitleOptions.contract}
+            </UnderTitle>
+            <UnderTitle>{expectedContractType}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <CvUnderTitle>{UnderTitleOptions.salary}</CvUnderTitle>
-            <CvUnderTitle white>{expectedSalary}</CvUnderTitle>
+            <UnderTitle
+              fontWeight="normal"
+              fontSize=".8em"
+              color="#CFCFCF"
+              height="30px"
+            >
+              {UnderTitleOptions.salary}
+            </UnderTitle>
+            <UnderTitle>{expectedSalary}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <CvUnderTitle>{UnderTitleOptions.trial}</CvUnderTitle>
-            <CvUnderTitle white>{consentForFreeInternships}</CvUnderTitle>
+            <UnderTitle
+              fontWeight="normal"
+              fontSize=".8em"
+              color="#CFCFCF"
+              height="30px"
+            >
+              {UnderTitleOptions.trial}
+            </UnderTitle>
+            <UnderTitle>{consentForFreeInternships}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <CvUnderTitle>{UnderTitleOptions.experince}</CvUnderTitle>
-            <CvUnderTitle white>{commercialProgrammingExperience}</CvUnderTitle>
+            <UnderTitle
+              fontWeight="normal"
+              fontSize=".8em"
+              color="#CFCFCF"
+              height="30px"
+            >
+              {UnderTitleOptions.experince}
+            </UnderTitle>
+            <UnderTitle>{commercialProgrammingExperience}</UnderTitle>
           </CvFlexContainer>
         </GridContainer>
       </CvUnderTitleSection>

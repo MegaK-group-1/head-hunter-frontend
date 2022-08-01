@@ -35,9 +35,9 @@ export function CvContactSection(props: Props) {
 
       <CvPositioner
         scroll
-        height="55%"
+        height="70%"
       >
-        <UnderTitle>O mnie</UnderTitle>
+        <UnderTitle color="#4D4D4D">O mnie</UnderTitle>
         <CvDescription>{description}</CvDescription>
       </CvPositioner>
 
