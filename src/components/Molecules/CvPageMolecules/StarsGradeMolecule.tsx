@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FaStar } from "react-icons/fa";
 
 interface Stars {
-  stars?: number;
+  rating?: number;
 }
 
 const StarDescription = styled.p`
@@ -40,7 +40,7 @@ const StarPositioner = styled.div<Stars>`
   justify-content: center;
   align-items: center;
 
-  > :nth-child(-n + ${({ stars }) => stars}) {
+  > :nth-child(-n + ${({ rating }) => rating}) {
     color: #e02735;
   }
 `;
@@ -56,7 +56,7 @@ export function StarsGradeMolecule(props: Props) {
     <Positioner>
       <StarDescription>{rating}</StarDescription>
       <StarDescription>/5</StarDescription>
-      <StarPositioner stars={rating}>
+      <StarPositioner rating={rating}>
         <GradesStar />
         <GradesStar />
         <GradesStar />

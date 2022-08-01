@@ -10,6 +10,7 @@ import { UnderTitle } from "../../Atoms/UnderTitle";
 interface ExpectationsDetails {
   userDetails: CvExpectations;
 }
+
 enum UnderTitleOptions {
   location = "Preferowane miejsce pracy",
   city = "Docelowe miasto, gdzie chce pracować kandydat",
