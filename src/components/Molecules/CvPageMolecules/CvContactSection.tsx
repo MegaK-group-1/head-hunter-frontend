@@ -43,8 +43,7 @@ export function CvContactSection(props: Props) {
 
       <CvPositioner height="30%">
         <Button
-          width="80%
-                    "
+          width="80%"
           size={ButtonSize.big}
           onClick={() => true}
         >

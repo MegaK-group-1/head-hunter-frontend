@@ -1,15 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import { CvHeadLabel } from "../../Atoms/CvHeadLabel";
 import { HeadTitle } from "../../Atoms/HeadTitle";
 import { CvUnderTitleSection } from "../../Atoms/CvUnderTitleSection";
 import { CvExpectations } from "../../../utils/TestUser";
 import { CvFlexContainer } from "../../Atoms/CvFlexContainer";
 import { GridContainer } from "../../Atoms/GridContainer";
+import { CvUnderTitle } from "../../Atoms/CvUnderTitle";
 
-interface Props {
-  white?: boolean;
-}
 interface ExpectationsDetails {
   userDetails: CvExpectations;
 }
@@ -21,14 +18,6 @@ enum UnderTitleOptions {
   trial = "Zgoda na odbycie bezpłatnych praktyk/stażu na początek",
   experince = "Komercyjne doświadczenie w programowaniu",
 }
-
-const UnderTitle = styled.p<Props>`
-  font-size: ${({ white }) => (white ? "1em" : ".8em")};
-  font-weight: ${({ white }) => (white ? "bold" : "normal")};
-  color: ${({ white }) => (white ? "white" : "#CFCFCF")};
-  height: 30px;
-  margin-bottom: 5px;
-`;
 
 export function ExpectationsSection(props: ExpectationsDetails) {
   const { userDetails } = props;
@@ -50,33 +39,36 @@ export function ExpectationsSection(props: ExpectationsDetails) {
       <CvUnderTitleSection flexDirection="row">
         <GridContainer>
           <CvFlexContainer borderR>
-            <UnderTitle>{UnderTitleOptions.location}</UnderTitle>
-            <UnderTitle white>{workPlacePreffer}</UnderTitle>
+            <CvUnderTitle>{UnderTitleOptions.location}</CvUnderTitle>
+            <CvUnderTitle white>{workPlacePreffer}</CvUnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <UnderTitle>{UnderTitleOptions.city}</UnderTitle>
-            <UnderTitle white>{prefferCity}</UnderTitle>
+            <CvUnderTitle>{UnderTitleOptions.city}</CvUnderTitle>
+            <CvUnderTitle white>{prefferCity}</CvUnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <UnderTitle>{UnderTitleOptions.contract}</UnderTitle>
-            <UnderTitle white>{expectedContractType}</UnderTitle>
+            <CvUnderTitle>{UnderTitleOptions.contract}</CvUnderTitle>
+            <CvUnderTitle white>{expectedContractType}</CvUnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <UnderTitle>{UnderTitleOptions.salary}</UnderTitle>
-            <UnderTitle white>{expectedSalary}</UnderTitle>
+            <CvUnderTitle>{UnderTitleOptions.salary}</CvUnderTitle>
+            <CvUnderTitle white>{expectedSalary}</CvUnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <UnderTitle>{UnderTitleOptions.trial}</UnderTitle>
-            <UnderTitle white>{consentForFreeInternships}</UnderTitle>
+            <CvUnderTitle>{UnderTitleOptions.trial}</CvUnderTitle>
+            <CvUnderTitle white>{consentForFreeInternships}</CvUnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
-            <UnderTitle>{UnderTitleOptions.experince}</UnderTitle>
-            <UnderTitle white> {commercialProgrammingExperience}</UnderTitle>
+            <CvUnderTitle>{UnderTitleOptions.experince}</CvUnderTitle>
+            <CvUnderTitle white>
+              {" "}
+              {commercialProgrammingExperience}
+            </CvUnderTitle>
           </CvFlexContainer>
         </GridContainer>
       </CvUnderTitleSection>
