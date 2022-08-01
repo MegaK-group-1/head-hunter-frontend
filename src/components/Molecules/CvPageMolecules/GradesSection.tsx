@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { CvHeadLabel } from "../../Atoms/CvHeadLabel";
 import { HeadTitle } from "../../Atoms/HeadTitle";
 import { CvGrades } from "../../../utils/TestUser";
@@ -7,13 +6,7 @@ import { CvUnderTitleSection } from "../../Atoms/CvUnderTitleSection";
 import { StarsGradeMolecule } from "./StarsGradeMolecule";
 import { CvFlexContainer } from "../../Atoms/CvFlexContainer";
 import { GridContainer } from "../../Atoms/GridContainer";
-
-const UnderTitle = styled.p`
-  color: #cfcfcf;
-  width: 70%;
-  font-size: 0.8em;
-  height: 30px;
-`;
+import { UnderTitle } from "../../Atoms/UnderTitle";
 
 enum UnderTitleOptions {
   courseCompletion = "Ocena przejścia kursu",
@@ -43,22 +36,54 @@ export function GradesSection(props: Props) {
       <CvUnderTitleSection flexDirection="row">
         <GridContainer>
           <CvFlexContainer>
-            <UnderTitle>{UnderTitleOptions.courseCompletion}</UnderTitle>
+            <UnderTitle
+              color="#cfcfcf"
+              width="70%"
+              fontSize=".8em"
+              height="30px"
+              fontWeight="normal"
+            >
+              {UnderTitleOptions.courseCompletion}
+            </UnderTitle>
             <StarsGradeMolecule rating={courseCompletion} />
           </CvFlexContainer>
 
           <CvFlexContainer>
-            <UnderTitle>{UnderTitleOptions.courseEngagment}</UnderTitle>
+            <UnderTitle
+              color="#cfcfcf"
+              width="70%"
+              fontSize=".8em"
+              height="30px"
+              fontWeight="normal"
+            >
+              {UnderTitleOptions.courseEngagment}
+            </UnderTitle>
             <StarsGradeMolecule rating={courseEngagment} />
           </CvFlexContainer>
 
           <CvFlexContainer>
-            <UnderTitle>{UnderTitleOptions.projectDegree}</UnderTitle>
+            <UnderTitle
+              color="#cfcfcf"
+              width="70%"
+              fontSize=".8em"
+              height="30px"
+              fontWeight="normal"
+            >
+              {UnderTitleOptions.projectDegree}
+            </UnderTitle>
             <StarsGradeMolecule rating={projectDegree} />
           </CvFlexContainer>
 
           <CvFlexContainer>
-            <UnderTitle>{UnderTitleOptions.teamProjectDegree}</UnderTitle>
+            <UnderTitle
+              color="#cfcfcf"
+              width="70%"
+              fontSize=".8em"
+              height="30px"
+              fontWeight="normal"
+            >
+              {UnderTitleOptions.teamProjectDegree}
+            </UnderTitle>
             <StarsGradeMolecule rating={teamProjectDegree} />
           </CvFlexContainer>
         </GridContainer>
