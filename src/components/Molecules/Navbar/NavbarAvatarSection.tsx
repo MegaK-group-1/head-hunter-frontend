@@ -16,7 +16,7 @@ export function NavbarAvatarSection(props: Props) {
       <Avatar src={avatar} />
       <UnderTitle
         fontWeight="normal"
-        fontSize="1em"
+        fontSize=".9em"
         color="white"
         align="center"
       >
