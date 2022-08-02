@@ -6,7 +6,8 @@ interface Props {
   id: number;
   rate: string;
   rated: string;
-  onClick?: (id: number, rate: string) => void;
+  type?: string;
+  onClick?: (id: number, rate: string, type?: string) => void;
 }
 
 const StarRed = styled(FaStar)`
@@ -58,13 +59,13 @@ const StyledRatingVal = styled.div`
 
 export const Star = (props: Props) => {
   
-  const { rate, rated, id } = props;
+  const { rate, rated, id, type } = props;
   
   const handleOnClick = () => {
     
     if (props.onClick) {
       
-      props.onClick(id, rate);
+      props.onClick(id, rate, type);
       
     }
     
