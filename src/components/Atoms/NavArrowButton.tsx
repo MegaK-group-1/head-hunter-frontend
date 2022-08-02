@@ -13,7 +13,11 @@ const Button = styled.button<Props>`
   background: none;
   border: none;
   transition: 0.3s linear;
-  transform: ${({ isOpen }) => (isOpen ? "rotateX(180deg)" : "rotateX(0deg)")};
+  transform: ${({ isOpen }) => (isOpen ? "rotateX(0deg)" : "rotateX(180deg)")};
+
+  :hover {
+    color: #e12735;
+  }
 `;
 
 export function NavArrowButton(props: Props) {
