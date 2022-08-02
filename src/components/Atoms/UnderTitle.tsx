@@ -6,6 +6,7 @@ interface Props {
   fontSize?: string;
   height?: string;
   fontWeight?: string;
+  align?: string;
 }
 export const UnderTitle = styled.h3<Props>`
   color: ${({ color }) => color || "4d4d4d"};
@@ -13,4 +14,5 @@ export const UnderTitle = styled.h3<Props>`
   width: ${({ width }) => width || "auto"};
   height: ${({ height }) => height || "auto"};
   font-weight: ${({ fontWeight }) => fontWeight || "auto"};
+  text-align: ${({ align }) => align || "auto"};
 `;

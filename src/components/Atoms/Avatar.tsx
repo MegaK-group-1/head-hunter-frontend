@@ -9,8 +9,8 @@ interface Props {
 const Img = styled.img<Props>`
   border-radius: 50%;
   max-width: 180px;
-  width: 7.5vw;
-  height: 7.5vw;
+  width: ${({ big }) => (big ? "7.5vw" : "45px")};
+  height: ${({ big }) => (big ? "7.5vw" : "45px")};
   min-width: ${({ big }) => (big ? "150px" : "45px")};
   min-height: ${({ big }) => (big ? "150px" : "45px")};
 `;
