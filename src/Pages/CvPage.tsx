@@ -1,5 +1,5 @@
-import { CvOrganism } from '../components/Organism/CvOrganism'
+import { CvOrganism } from "../components/Organism/CvOrganism";
 
-export const CvPage = () => {
-  return <CvOrganism />
+export function CvPage() {
+  return <CvOrganism />;
 }

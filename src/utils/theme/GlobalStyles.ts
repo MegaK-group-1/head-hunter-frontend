@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
-import '../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf'
-export const GlobalStyle = createGlobalStyle`
+import { createGlobalStyle } from "styled-components";
+import "../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf";
 
+export const GlobalStyle = createGlobalStyle`
   * {
     padding: 0;
     margin: 0;
@@ -15,5 +15,4 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #222224;
   }
   
-  `
-  
+  `;
