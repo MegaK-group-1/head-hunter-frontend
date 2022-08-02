@@ -5,6 +5,7 @@ export const NavModalContainer = styled.div`
   max-width: 400px;
   min-height: 300px;
   width: 20vw;
+  padding: 20px 10px;
   background-color: #292a2b;
   display: flex;
   justify-content: center;
