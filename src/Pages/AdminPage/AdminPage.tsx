@@ -10,12 +10,13 @@ const Wrapper = styled.div`
   background-color: #222224;
   display: flex;
   justify-content: center;
-  gap:5rem;
+  gap:15rem;
   flex-direction: row;
   overflow: hidden;
 
   @media screen and  (max-width: 768px) {
-gap:2rem;
+    
+gap:7rem;
 }
 `
 //logo MegaK right-top
@@ -34,7 +35,7 @@ export const LogoMegaKRT = styled.div`
   height: 7vw;
 `;
 
-const NavbarLink = styled(Link)`
+export const NavbarLink = styled(Link)`
   width:auto;
   height: 39px;
   padding-left: 15px;
@@ -46,18 +47,24 @@ const NavbarLink = styled(Link)`
   text-decoration: none;
   line-height: 39px;
   border: none;
-  align-self: center;
+  align-self:center;
   transition: 0.2s linear;
 
   :hover {
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
   }
+
+  @media screen and  (max-width: 768px) {
+    margin-bottom: -200px;
+    gap:7rem;
+  }
+
+  @media screen and  (max-width: 915px) {
+    margin-bottom: -200px;
+    gap:7rem;
+  }
 `
-
-
-
-
 
 
 export const AdminPage = () => {

@@ -1,9 +1,42 @@
 import React, {CSSProperties, useState} from 'react';
 import {Button} from '../../components/Atoms/Button'
-// import {Wrapper} from '../../components/Atoms/Wrapper'
+// import {NavbarLink} from '../AdminPage/AdminPage'
 import {LogoMegaKRT} from '../AdminPage/AdminPage'
 import { useCSVReader } from 'react-papaparse';
 import styled from "styled-components";
+import {Link} from "react-router-dom";
+
+interface Props {
+    children: string
+    to: string
+    align?: string
+    decoration?: string
+    style?: CSSProperties | undefined
+}
+
+
+// @ts-ignore
+ let NavbarLink = styled(Link)`
+  width:auto;
+  height: 39px;
+  position:absolute;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #e12735;
+  margin-bottom: -500px;
+  color: ${({color})=> color};
+  text-align: center;
+  text-decoration: none;
+  line-height: 39px;
+  border: none;
+  align-self:center;
+  transition: 0.2s linear;
+
+  :hover {
+    box-shadow: 0 0 1px 1px white;
+    cursor: pointer;
+  }
+`
 
 export const Wrapper = styled.div`
   width: 100vw;
@@ -26,14 +59,6 @@ const AcceptFile = styled.div`
   padding-left: 10px;
   width: 40%;
 `
-const styles = {
-    browseFile: {
-        width: '20%',
-    } as CSSProperties,
-    progressBarBackgroundColor: {
-        backgroundColor: 'blue',
-    } as CSSProperties,
-};
 
 export default function CSVReader() {
     const { CSVReader } = useCSVReader();
@@ -47,11 +72,9 @@ export default function CSVReader() {
                 return results;
             }}
         >
-
             {({
                   getRootProps,
                   acceptedFile,
-                  ProgressBar,
                   getRemoveFileProps,
               }: any) => (
                 <>
@@ -63,11 +86,11 @@ export default function CSVReader() {
                         </Button>
                         <AcceptFile >
                             {acceptedFile && acceptedFile.name}
-                            <ProgressBar style={styles.progressBarBackgroundColor} />
                         </AcceptFile>
                         <Button {...getRemoveFileProps()}>
                             Usuń
                         </Button>
+                        <NavbarLink to='/admin' color={'#fff'} >Powrót</NavbarLink>
                     </Wrapper>
                 </>
             )}
