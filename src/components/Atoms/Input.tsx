@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
+interface Props {
+  dark?: boolean;
+  small?: boolean;
+}
+
+export const Input = styled.input<Props>`
   width: 18vw;
-  min-width: 330px;
+  min-width: ${({ small }) => (small ? "120px" : "330px")};
   height: 40px;
-  background: #292a2b no-repeat padding-box;
+  background: ${({ dark }) => (dark ? "#1E1E1F" : "#292a2b")};
   border: none;
   margin: 8px;
   padding: 2px 0 2px 15px;
