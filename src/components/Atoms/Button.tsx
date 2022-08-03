@@ -25,7 +25,7 @@ const StyledButton = styled.button<Props>`
   border: none;
   align-self: center;
   transition: 0.2s linear;
-
+  padding: 5px;
   :hover {
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
