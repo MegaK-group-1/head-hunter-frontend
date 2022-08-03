@@ -14,7 +14,7 @@ export const NavModalContainer = styled.div`
   top: 80px;
   right: 5vw;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   animation: showMe 0.3s linear forwards;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
   @keyframes showMe {
