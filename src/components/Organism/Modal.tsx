@@ -8,6 +8,7 @@ import { SingleButtonedOption } from '../Molecules/SingleButtonedOption';
 import { OptionButton } from '../Atoms/OptionButton';
 
 import './Modal.css';
+import { LabeledOptionInput } from '../Atoms/LabeledOptionInput';
 
 interface Props {
   id?: number;
@@ -24,6 +25,8 @@ export const Modal = (props: Props) => {
 
   const [markedTargetWorkCity, setMarkedTargetWorkCity] = useState('');
   const [markedExpectedContractType, setMarkedExpectedContractType] = useState('');
+  const [expectedSalaryMin, setExpectedSalaryMin] = useState(0);
+  const [expectedSalaryMax, setExpectedSalaryMax] = useState(0);
   
   const { closeModal } = props;
   
@@ -73,6 +76,24 @@ export const Modal = (props: Props) => {
         
       return console.log('Button id: ', id, 'Caption: ', rate);
         
+  }
+
+  const onChangeVal = (id: string, value: string, type: string) => {
+
+    if (type === 'expectedSalaryMin') {
+
+      setExpectedSalaryMin(Number(value));
+
+    }
+
+    if (type === 'expectedSalaryMax') {
+
+      setExpectedSalaryMax(Number(value));
+
+    }
+
+    console.log('Id: ', id, 'Value: ', value);
+
   }
   
   const courseCompletition = [
@@ -301,6 +322,25 @@ export const Modal = (props: Props) => {
     />
   ];
 
+  const expectedSalary = [
+    <LabeledOptionInput 
+      label='Od' 
+      placeholder={'np. 1000 zł'}
+      key={'I01'}
+      id={'I01'}
+      onChangeVal={onChangeVal}
+      type={'expectedSalaryMin'}
+    />,
+    <LabeledOptionInput 
+      label='Do' 
+      placeholder={'np. 1000 zł'}
+      key={'I02'}
+      id={'I02'}
+      onChangeVal={onChangeVal}
+      type={'expectedSalaryMax'}
+    />
+  ];
+
   return (
     // <Wrapper>
       <div className="modalBackground">
@@ -340,19 +380,13 @@ export const Modal = (props: Props) => {
           options={expectedContractType}
         >
         </SingleButtonedOption>
-        <div className="optionElement">
-          <p className="label">Oczekiwane wynagrodzenie miesięcznie netto</p>
-          <div className="options">
-            <label>
-              Od 
-              <input className="optionInput" type="text" placeholder="np. 1000 zł" />
-            </label>
-            <label>
-              Do 
-              <input className="optionInput" type="text" placeholder="np. 10000 zł" />
-            </label>
-          </div>
-        </div>
+        {/* <div className="optionElement"> */}
+        <SingleLabeledOption
+         labelName={'Oczekiwane wynagrodzenie miesięcznie netto'}
+         options={expectedSalary}
+        >  
+        </SingleLabeledOption>
+        {/* </div> */}
         <div className="optionElement optionElement--marginBottom2">
           <p className="label">Zgoda na odbycie bezpłatnych praktyk/stażu na początek</p>
           <div className="options options--vertical">
