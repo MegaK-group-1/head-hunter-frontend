@@ -1,7 +1,6 @@
 import React, {CSSProperties, useState} from 'react';
 import {Button} from '../../components/Atoms/Button'
-// import {NavbarLink} from '../AdminPage/AdminPage'
-import {LogoMegaKRT} from '../AdminPage/AdminPage'
+import {LogoMegaKRT} from '../../components/Atoms/LogoMegaKRT'
 import { useCSVReader } from 'react-papaparse';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
@@ -15,8 +14,8 @@ interface Props {
 }
 
 
-// @ts-ignore
- let NavbarLink = styled(Link)`
+
+ let NavbarLink = styled(Link)<Props>`
   width:auto;
   height: 39px;
   position:absolute;

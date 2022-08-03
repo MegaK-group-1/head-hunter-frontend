@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { LoginPage } from './Pages/LoginPage/LoginPage'
 import { CvPage } from './Pages/CvPage'
-import {AdminPage} from "./Pages/AdminPage/AdminPage";
+import {AdminPage} from "./components/Organism/AdminPage";
 import CsvReader from "./Pages/CsvReader/CsvReader";
 import {AddHR} from "./Pages/AddHR/AddHR";
 
