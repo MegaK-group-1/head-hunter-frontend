@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { NavbarContainer } from "../../Atoms/NavbarContainer";
-import { LogoMegaK } from "../../Atoms/LogoMegaK";
-import { NavbarAvatarSection } from "./NavbarAvatarSection";
-import { NavModal } from "./NavModal";
+import { NavbarContainer } from "../Atoms/NavbarContainer";
+import { LogoMegaK } from "../Atoms/LogoMegaK";
+import { NavbarAvatarSection } from "../Molecules/Navbar/NavbarAvatarSection";
+import { NavModal } from "../Molecules/Navbar/NavModal";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

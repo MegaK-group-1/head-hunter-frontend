@@ -11,7 +11,6 @@ import { ScrumProjectSection } from "../Molecules/CvPageMolecules/ScrumProjectSe
 import { FinalExamProjectSection } from "../Molecules/CvPageMolecules/FinalExamProjectSection";
 import { ExpectationsSection } from "../Molecules/CvPageMolecules/ExpectationsSection";
 import { cvDetails, FinalCvInterface } from "../../utils/TestUser";
-import { Navbar } from "../Molecules/Navbar/Navbar";
 
 const PositionContainer = styled.div`
   display: flex;
@@ -53,7 +52,6 @@ export function CvOrganism() {
 
   return (
     <Wrapper>
-      <Navbar />
       <PositionContainer>
         <CvContactSection userDetails={base} />
         <FlexContainer>

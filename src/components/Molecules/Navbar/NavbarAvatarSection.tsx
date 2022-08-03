@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from "react";
-import { Avatar } from "../../Atoms/Avatar";
 import avatar from "../../../assets/images/testAvatar.png";
+import { Avatar } from "../../Atoms/Avatar";
 import { NavbarMenuContainer } from "../../Atoms/NavbarMenuContainer";
 import { NavArrowButton } from "../../Atoms/NavArrowButton";
 import { UnderTitle } from "../../Atoms/UnderTitle";

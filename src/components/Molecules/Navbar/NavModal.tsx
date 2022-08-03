@@ -22,7 +22,7 @@ export function NavModal() {
       </NavigationLink>
       <NavigationLink
         icon={<FaListUl />}
-        to="/available"
+        to="/available-students"
       >
         Wszyscy Kursanci
       </NavigationLink>
