@@ -7,8 +7,11 @@ import { SingleLabeledOption } from '../Molecules/SingleLabeledOption';
 import { SingleButtonedOption } from '../Molecules/SingleButtonedOption';
 import { OptionButton } from '../Atoms/OptionButton';
 
-import './Modal.css';
 import { LabeledOptionInput } from '../Atoms/LabeledOptionInput';
+import { RadioBox } from '../Atoms/RadioBox';
+import { SingleLabeledRadioOption } from '../Molecules/SingleLabeledRadioOption';
+
+import './Modal.css';
 
 interface Props {
   id?: number;
@@ -27,6 +30,7 @@ export const Modal = (props: Props) => {
   const [markedExpectedContractType, setMarkedExpectedContractType] = useState('');
   const [expectedSalaryMin, setExpectedSalaryMin] = useState(0);
   const [expectedSalaryMax, setExpectedSalaryMax] = useState(0);
+  const [answer, setAnswer] = useState('Nie');
   
   const { closeModal } = props;
   
@@ -93,6 +97,12 @@ export const Modal = (props: Props) => {
     }
 
     console.log('Id: ', id, 'Value: ', value);
+
+  }
+
+  const onCheckVal = (id: string, value: string) => {
+
+      setAnswer(value);
 
   }
   
@@ -341,6 +351,23 @@ export const Modal = (props: Props) => {
     />
   ];
 
+  const yesNoOptions = [
+    <RadioBox 
+      caption="Tak" 
+      key="Y01"
+      id="Y01"
+      onChange={onCheckVal}
+      answer={answer}
+      />, 
+    <RadioBox 
+      caption="Nie" 
+      key="N01"
+      id="N01"
+      onChange={onCheckVal}
+      answer={answer}
+      />
+  ];
+
   return (
     // <Wrapper>
       <div className="modalBackground">
@@ -380,26 +407,16 @@ export const Modal = (props: Props) => {
           options={expectedContractType}
         >
         </SingleButtonedOption>
-        {/* <div className="optionElement"> */}
         <SingleLabeledOption
          labelName={'Oczekiwane wynagrodzenie miesięcznie netto'}
          options={expectedSalary}
         >  
         </SingleLabeledOption>
-        {/* </div> */}
-        <div className="optionElement optionElement--marginBottom2">
-          <p className="label">Zgoda na odbycie bezpłatnych praktyk/stażu na początek</p>
-          <div className="options options--vertical">
-            <label className="container">Tak
-              <input className="optionRadio" name="radio" type="radio" />
-              <span className="checkmark"></span>
-            </label>
-            <label className="container">Nie
-              <input className="optionRadio" name="radio" type="radio" />
-              <span className="checkmark"></span>
-            </label>
-          </div>
-        </div>
+        <SingleLabeledRadioOption
+          labelName={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
+          options={yesNoOptions}
+        >
+        </SingleLabeledRadioOption>
         <div className="optionElement">
           <p className="label">Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu</p>
           <div className="options">
