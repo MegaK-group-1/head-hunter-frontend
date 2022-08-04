@@ -34,9 +34,15 @@ export const LabeledOptionInput = (props: Props) => {
 
   const [inputVal, setInputVal] = useState('');
 
-  if (onChangeVal) {
+  const handleOnChange = (e: any) => {
 
-    onChangeVal(id, inputVal, type);
+    setInputVal(e.target.value)
+
+    if (onChangeVal) {
+  
+      onChangeVal(id, inputVal, type);
+      
+    }
 
   }
 
@@ -49,9 +55,9 @@ export const LabeledOptionInput = (props: Props) => {
         type="text" 
         placeholder={placeholder} 
         value={inputVal}
-        onChange={e => setInputVal(e.target.value)}
+        onChange={handleOnChange}
       />
-  </StyledLabel>
+    </StyledLabel>
 
   )
 }
