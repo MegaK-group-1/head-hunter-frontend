@@ -4,7 +4,7 @@ import { LoginPage } from './Pages/LoginPage/LoginPage'
 import { CvPage } from './Pages/CvPage'
 import {AdminPage} from "./components/Organism/AdminPage";
 import CsvReader from "./Pages/CsvReader/CsvReader";
-import {AddHR} from "./Pages/AddHR/AddHR";
+import {AddHR} from "./components/Organism/AddHR";
 
 function App() {
   return (
