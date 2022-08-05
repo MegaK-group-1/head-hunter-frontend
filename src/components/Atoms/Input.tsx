@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Input = styled.input`
   width: 18vw;
@@ -9,4 +9,4 @@ export const Input = styled.input`
   margin: 8px;
   padding: 2px 0 2px 15px;
   color: white;
-`
+`;
