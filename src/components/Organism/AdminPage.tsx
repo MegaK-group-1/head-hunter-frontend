@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {LogoMegaKRT} from "../Atoms/LogoMegaKRT";
 import {NavbarLink} from '../Atoms/NavbarLink'
 
-
 const Wrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
