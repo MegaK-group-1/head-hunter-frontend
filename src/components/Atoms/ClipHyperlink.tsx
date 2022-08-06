@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FaPhoneAlt } from "react-icons/fa";
+import { BsPaperclip } from "react-icons/bs";
 import { Hyperlink } from "./Hyperlink";
 
 interface Props {
@@ -9,26 +9,28 @@ interface Props {
 }
 
 const StyledHyperLink = styled(Hyperlink)`
-  color: #f7f7f7;
   justify-content: flex-start;
-  max-width: 100%;
-  padding-left: 10px;
+  margin-bottom: 5px;
   transition: 0.2s linear;
   :hover {
-    color: yellowgreen;
+    color: white;
   }
 `;
 
-const PhoneIcon = styled(FaPhoneAlt)`
-  color: #4d4d4d;
+const ClipIcon = styled(BsPaperclip)`
+  width: 25px;
+  height: 35px;
 `;
 
-export function TelHyperlink(props: Props) {
+export function ClipHyperlink(props: Props) {
   const { children, href } = props;
 
   return (
-    <StyledHyperLink href={`tel:${href}`}>
-      <PhoneIcon />
+    <StyledHyperLink
+      target="_blank"
+      href={href}
+    >
+      <ClipIcon />
       {children}
     </StyledHyperLink>
   );
