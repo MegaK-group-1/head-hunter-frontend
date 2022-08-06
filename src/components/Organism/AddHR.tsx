@@ -18,8 +18,10 @@ const StyledForm = styled.form`
 `;
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  email: string;
+  fullName: string;
+  maxReservedStudents: string;
+  company: string;
 };
 
 const firstNameValidation = {
@@ -37,14 +39,14 @@ export function AddHR() {
         <LogoMegaK />
         {/* @ts-ignore */}
         <Input
-          {...register("email", { firstNameValidation })}
+          {...register("email", { ...firstNameValidation })}
           type="email"
           placeholder="E-mail"
           name="email"
         />
         {/* @ts-ignore */}
         <Input
-          {...register("fullName", { firstNameValidation })}
+          {...register("fullName", { ...firstNameValidation })}
           {...firstNameValidation}
           type="text"
           placeholder="fullName"
