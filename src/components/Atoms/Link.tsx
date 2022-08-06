@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 interface Props {
-  children: string
-  to: string
-  align?: string
-  decoration?: string
+  children: string;
+  to: string;
+  align?: string;
+  decoration?: string;
 }
 
 export const StylesLink = styled(Link)<Props>`
