@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface Props {
   children: string;
   onClick?: MouseEventHandler;
-  size: ButtonSize;
+  size?: ButtonSize;
   width?: string;
 }
 
@@ -33,7 +33,7 @@ const StyledButton = styled.button<Props>`
 `;
 
 export function Button(props: Props) {
-  const { children, onClick, size, width } = props;
+  const { children, onClick, size = ButtonSize.medium, width } = props;
 
   return (
     <StyledButton

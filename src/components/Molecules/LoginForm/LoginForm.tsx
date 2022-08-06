@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { ReusableInput } from "../../Atoms/ReusableInput";
 import { StyledLink } from "../../Atoms/Link";
-import { Button } from "../../Atoms/Button";
+import { Button, ButtonSize } from "../../Atoms/Button";
 import { Paragraph } from "../../Atoms/Paragraph";
 import { api } from "../../../utils/api/api";
 import { UserLoginReq } from "types";
@@ -100,6 +100,7 @@ export const LoginForm = () => {
 
           <Button
             onClick={() => handleClickOnLogin(loginData, setStatusText, nav)}
+            size={ButtonSize.small}
           >
             Zaloguj się
           </Button>
