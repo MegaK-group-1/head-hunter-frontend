@@ -58,13 +58,13 @@ const AcceptFile = styled.div`
 `;
 
 export default function CSVReader() {
-  const { CSVReader } = useCSVReader();
+  const { CSVReader: CvsReader } = useCSVReader();
   const [data, setData] = useState([]);
 
   return (
-    <CSVReader
+    <CvsReader
       onUploadAccepted={(results: any) => {
-        console.log(results);
+        console.log(results, data);
         setData(results);
         return results;
       }}
@@ -83,6 +83,6 @@ export default function CSVReader() {
           </NavbarLink>
         </Wrapper>
       )}
-    </CSVReader>
+    </CvsReader>
   );
 }
