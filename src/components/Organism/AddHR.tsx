@@ -1,10 +1,12 @@
-import React, {FormEvent} from "react";
+import React from "react";
 import {useForm,SubmitHandler} from "react-hook-form";
 import {Wrapper} from "../Atoms/Wrapper";
+import {NavbarLink} from "../Atoms/NavbarLink";
 import {LogoMegaK } from "../Atoms/LogoMegaK";
 import {Input} from "../Atoms/Input";
 import { Button} from '../Atoms/Button'
 import styled from "styled-components";
+import { Container } from "../Atoms/Container";
 
 
 
@@ -31,7 +33,7 @@ export const AddHR = () => {
     const { register, handleSubmit} = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
 
-    // @ts-ignore
+
     return (
         <Wrapper>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +47,12 @@ export const AddHR = () => {
             {/*@ts-ignore*/}
             <Input {...register('maxReservedStudents',{required:true})} type='number'  placeholder='maxReservedStudents' name='maxReservedStudents' min={1} max={999}/>
              {/*@ts-ignore*/}
-            <Button type='submit'>Dodaj</Button>
+            <Container>
+                {/*@ts-ignore*/}
+                <Button type='submit'>Dodaj</Button>
+                <NavbarLink to={'/admin'}>Powrót</NavbarLink>
+            </Container>
+
         </StyledForm>
         </Wrapper>
     )
