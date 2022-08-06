@@ -10,6 +10,10 @@ interface Props {
 
 const StyledHyperLink = styled(Hyperlink)`
   color: #0b8bd4;
+  transition: 0.2s linear;
+  :hover {
+    color: white;
+  }
 `;
 
 const GithubIcon = styled(FaGithub)`

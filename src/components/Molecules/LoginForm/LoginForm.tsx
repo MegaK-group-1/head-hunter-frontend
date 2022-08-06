@@ -2,7 +2,7 @@ import React, { FormEvent } from "react";
 import styled from "styled-components";
 import { Input } from "../../Atoms/Input";
 import { StyledLink } from "../../Atoms/Link";
-import { Button } from "../../Atoms/Button";
+import { Button, ButtonSize } from "../../Atoms/Button";
 import { Paragraph } from "../../Atoms/Paragraph";
 
 const StyledForm = styled.form`
@@ -21,12 +21,12 @@ const PositionWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  gap: 5px;
 `;
 
 export function LoginForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("Click test");
   };
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -58,7 +58,12 @@ export function LoginForm() {
           Zarejestruj się
         </StyledLink>
 
-        <Button>Zaloguj się</Button>
+        <Button
+          width="20%"
+          size={ButtonSize.small}
+        >
+          Zaloguj się
+        </Button>
       </PositionWrapper>
     </StyledForm>
   );

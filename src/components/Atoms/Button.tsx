@@ -3,13 +3,22 @@ import styled from "styled-components";
 
 interface Props {
   children: string;
-  long?: boolean;
   onClick?: MouseEventHandler;
+  size: ButtonSize;
+  width?: string;
+}
+
+export enum ButtonSize {
+  small = "100px",
+  medium = "140px",
+  big = "200px",
 }
 
 const StyledButton = styled.button<Props>`
-  width: ${({ long }) => (long ? "200px" : "100px")};
+  min-width: ${({ size }) => size};
+  width: ${({ width }) => width};
   height: 39px;
+  letter-spacing: 2px;
   background-color: #e12735;
   color: white;
   text-align: center;
@@ -24,12 +33,13 @@ const StyledButton = styled.button<Props>`
 `;
 
 export function Button(props: Props) {
-  const { long, children, onClick } = props;
+  const { children, onClick, size, width } = props;
 
   return (
     <StyledButton
+      width={width}
       onClick={onClick}
-      long={long}
+      size={size}
     >
       {children}
     </StyledButton>
