@@ -8,30 +8,28 @@ import { AddHR } from "./components/Organism/AddHR";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route
-          path={"/"}
-          element={<LoginPage />}
-        />
-        <Route
-          path={"/cv"}
-          element={<CvPage />}
-        />
-        <Route
-          path={"/admin"}
-          element={<AdminPage />}
-        />
-        <Route
-          path={"/csv"}
-          element={<CsvReader />}
-        />
-        <Route
-          path={"/hr"}
-          element={<AddHR />}
-        />
-      </Routes>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={<LoginPage />}
+      />
+      <Route
+        path="/cv"
+        element={<CvPage />}
+      />
+      <Route
+        path="/admin"
+        element={<AdminPage />}
+      />
+      <Route
+        path="/csv"
+        element={<CsvReader />}
+      />
+      <Route
+        path="/hr"
+        element={<AddHR />}
+      />
+    </Routes>
   );
 }
 
