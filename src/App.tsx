@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { LoginPage } from './Pages/LoginPage/LoginPage'
 import { CvPage } from './Pages/CvPage'
-import {UserPage} from "./Pages/UserPage/UserPage";
+import {UserPage} from "./Pages/UserPage/UserPage"
 
 function App() {
   return (
