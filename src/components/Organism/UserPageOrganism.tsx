@@ -65,26 +65,26 @@ export const UserPageOrganism = () => {
         courses: ""
     });
 
-    // const updateField = (userData: React.SetStateAction<{ firstName: string; lastName: string; email: string; phone: string; githubUsername: string; portfolioUrls: string; bonusProjectUrls: string; bio: string; expectedContractType: string; expectedSalary: string; expectedTypeWork: string; targetWorkCity: string; canTakeApprenticeship: string; education: string; monthsOfCommercialExp: string; workExperience: string; courses: string; }>) => {
-    //     setUserData(
-    //         userData,
-    //     )
-    // }
-    //
-    // const updateData = (data: any) => {
-    //     setUserData(userData);
-    // }
-    //
-    // const fetchUser = async () => {
-    //     await fetch(`http://localhost:3001/users/1`)
-    //         .then((response) => response.json())
-    //         .then(response => updateField(response)
-    //         );
-    // }
+    const updateField = (userData: React.SetStateAction<{ firstName: string; lastName: string; email: string; phone: string; githubUsername: string; portfolioUrls: string; bonusProjectUrls: string; bio: string; expectedContractType: string; expectedSalary: string; expectedTypeWork: string; targetWorkCity: string; canTakeApprenticeship: string; education: string; monthsOfCommercialExp: string; workExperience: string; courses: string; }>) => {
+        setUserData(
+            userData,
+        )
+    }
+
+    const updateData = (userData: any) => {
+        setUserData(userData);
+    }
+
+    const fetchUser = async () => {
+        await fetch(`http://localhost:3001/users/1`)
+            .then((response) => response.json())
+            .then(response => updateField(response)
+            );
+    }
 
     return (
         <>
-            {/*<button onClick={fetchUser}>Pobierz swoje dane</button>*/}
+            <button onClick={fetchUser}>Pobierz swoje dane</button>
             <ContainerDiv>
                 <Grow in>
                     <MainDiv>
