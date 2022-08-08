@@ -5,7 +5,7 @@ import { StudentsNavigationLinks } from "../../Atoms/StudentsNavigationLinks";
 export function StudentsUnderNav() {
   return (
     <StudentsHeadPart justify="flex-start">
-      <StudentsNavigationLinks to="/available-students">
+      <StudentsNavigationLinks to="/students">
         Dostępni kursanci
       </StudentsNavigationLinks>
       <StudentsNavigationLinks to="/reserved-students">
