@@ -5,19 +5,10 @@ import { StudentsArrowButton } from "../../Atoms/StudentsArrowButton";
 import { UnderTitle } from "../../Atoms/UnderTitle";
 import { StudentsHeadPart } from "../../Atoms/StudentsHeadPart";
 import { StudentsExpectationSection } from "../../Atoms/StudentsExpectationSection";
+import { StudentDetails } from "../../../utils/types/user";
 
 interface Props {
-  children?: string;
-  details: {
-    name: string;
-    workPlacePreffer: string;
-    prefferCity: string;
-    expectedContractType: string;
-    expectedSalary: string;
-    consentForFreeInternships: string;
-    commercialProgrammingExperience: string;
-    id: number;
-  };
+  details: StudentDetails;
 }
 
 const Positioner = styled.div`
@@ -35,7 +26,7 @@ const Positioner = styled.div`
 `;
 
 export function SingleStudentContainer(props: Props) {
-  const { details, children } = props;
+  const { details } = props;
   const [userDetails] = useState(details);
   const [isOpen, setOpen] = useState(false);
 
@@ -51,12 +42,17 @@ export function SingleStudentContainer(props: Props) {
         isOpen={isOpen}
       >
         <Positioner>
-          <UnderTitle color="white">{children}</UnderTitle>
           <UnderTitle
             fontWeight="normal"
             color="white"
           >
-            {details.name}
+            {details.firstName}
+          </UnderTitle>
+          <UnderTitle
+            fontWeight="normal"
+            color="white"
+          >
+            {details.lastName}
           </UnderTitle>
         </Positioner>
         <Positioner>
