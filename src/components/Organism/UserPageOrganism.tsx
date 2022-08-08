@@ -1,3 +1,4 @@
+// prettier-ignore
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {UserDescription} from "../Molecules/UserDescription/UserDescription";
@@ -45,8 +46,23 @@ const StyledForm = styled.div`
 `
 export const UserPageOrganism = () => {
     const [userData, setUserData] = useState({
-        firstName: '',
-        lastName: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        githubUsername: "",
+        portfolioUrls: "",
+        bonusProjectUrls: "",
+        bio: "",
+        expectedContractType: "",
+        expectedSalary: "",
+        expectedTypeWork: "",
+        targetWorkCity: "",
+        canTakeApprenticeship: "",
+        education: "",
+        monthsOfCommercialExp: "",
+        workExperience: "",
+        courses: ""
     });
 
     const updateData = (data: any) => {
@@ -63,7 +79,7 @@ export const UserPageOrganism = () => {
     return (
         <>
             {/*<button onClick={fetchUser}>Pobierz swoje dane</button>*/}
-            <ContainerDiv >
+            <ContainerDiv>
                 <Grow in>
                     <MainDiv>
                         <Grid item xs={12} sm={7}>
@@ -80,6 +96,5 @@ export const UserPageOrganism = () => {
                 </Grow>
             </ContainerDiv>
         </>
-    )
-}
-
+    );
+};
