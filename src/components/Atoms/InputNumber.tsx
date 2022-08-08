@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 interface Props {
@@ -7,7 +7,8 @@ interface Props {
   minVal: number;
   maxVal: number;
   placeholder: string;
-  inputNumberValue?: (counter: number) => void;
+  value: number;
+  onSetVal: (value: number) => void;
 
 }
 
@@ -63,17 +64,17 @@ let acc = 0;
 
 export const InputNumber = (props: Props) => {
 
-  const { minVal, maxVal, placeholder } = props;
+  const { minVal, maxVal, placeholder, value } = props;
+
+  acc = value;
 
   const handleOnClickArrow = (sign: string, minVal: number, maxVal: number) => {
 
     if (sign === '+' && acc <= maxVal - 1) {
       
-      ++acc;
+      if (props.onSetVal) {
 
-      if (props.inputNumberValue) {
-
-        props.inputNumberValue(acc);
+        props.onSetVal(++acc);
 
       };
 
@@ -81,12 +82,9 @@ export const InputNumber = (props: Props) => {
     
     if (sign === '-' && acc >= minVal + 1) {
 
-      --acc;
+      if (props.onSetVal) {
 
-      if (props.inputNumberValue) {
-
-
-        props.inputNumberValue(acc);
+        props.onSetVal(--acc);
 
       };
 
@@ -98,7 +96,7 @@ export const InputNumber = (props: Props) => {
 
     <StyledInputNumber>
       <div>
-        { acc ? acc : placeholder }
+        { acc ? value : placeholder }
       </div>
       <StyledArrows>
         <StyledArrowUp onClick={

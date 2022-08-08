@@ -32,7 +32,7 @@ export const Modal = (props: Props) => {
   const [expectedSalaryMin, setExpectedSalaryMin] = useState('');
   const [expectedSalaryMax, setExpectedSalaryMax] = useState('');
   const [answer, setAnswer] = useState('Nie');
-  const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(0);
+  const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(1);
   
   const { closeModal } = props;
   
@@ -100,17 +100,17 @@ export const Modal = (props: Props) => {
 
   }
 
-  const handleInputNumberValueChanged = (counter: number) => {
+  const onSetVal = (value: number) => {
 
-    setChangedMonthsOfCommercialExp(counter);
+    setChangedMonthsOfCommercialExp(value);
 
   }
 
-  // useEffect(() => {
-  //   (async () => {
-  //     setExpectedSalaryMin('');
-  //   })();
-  // }, [expectedSalaryMin]);
+  // const handleInputNumberValueChanged = (counter: number) => {
+
+  //   setChangedMonthsOfCommercialExp(counter);
+
+  // }
 
   const handleClearButton = () => {
 
@@ -398,7 +398,8 @@ export const Modal = (props: Props) => {
       placeholder={'0 miesięcy'} 
       key="Nr01" 
       id="Nr01"
-      inputNumberValue={handleInputNumberValueChanged}
+      onSetVal={onSetVal}
+      value={changedMonthsOfCommercialExp}
     />];
 
   return (
