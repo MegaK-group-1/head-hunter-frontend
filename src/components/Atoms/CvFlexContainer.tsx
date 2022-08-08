@@ -14,7 +14,7 @@ export const CvFlexContainer = styled.div<Props>`
   border-bottom: 2px solid #292a2b;
   color: white;
   padding: 10px;
-  gap: 35px;
+  gap: 45px;
 
   @media (min-width: 1300px) {
     border-bottom: none;
