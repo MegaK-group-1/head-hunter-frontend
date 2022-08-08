@@ -11,19 +11,26 @@ import { CvContactContainer } from "../../Atoms/CvContactContainer";
 import { CvDescription } from "../../Atoms/CvDescription";
 import { CvBase } from "../../../utils/TestUser";
 
+// TODO: move to API/Services
+const GITHUB_API = "https://github.com/";
 interface Props {
   userDetails: CvBase;
 }
 
 export function CvContactSection(props: Props) {
   const { userDetails } = props;
-  const { avatar, name, githubLink, tel, email, description } = userDetails;
+  const { avatar, name, githubLink, tel, email, description, githubUsername } =
+    userDetails;
+
+  const userAvatar = githubUsername
+    ? `${GITHUB_API}${githubUsername}.png`
+    : avatar;
 
   return (
     <CvContactContainer>
       <Avatar
         big
-        src={avatar}
+        src={userAvatar}
       />
       <HeadTitle>{name}</HeadTitle>
       <GithubHyperlink href={githubLink}>{name}</GithubHyperlink>
