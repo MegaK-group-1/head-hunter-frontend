@@ -31,12 +31,11 @@ export const Modal = (props: Props) => {
   const [expectedSalaryMin, setExpectedSalaryMin] = useState(0);
   const [expectedSalaryMax, setExpectedSalaryMax] = useState(0);
   const [answer, setAnswer] = useState('Nie');
+  const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(0);
   
   const { closeModal } = props;
   
   const onClick = (id: number, rate: string, type?: string) => {
-    
-    console.log('Rate id: ', id, 'Rated: ', rate, 'Type: ', type);
     
     if (!isNaN(Number(rate))) {
       
@@ -59,8 +58,6 @@ export const Modal = (props: Props) => {
           break;
 
       }
-
-      return console.log('Rate id: ', id, 'Rate value: ', rate);
       
     } 
     
@@ -78,8 +75,6 @@ export const Modal = (props: Props) => {
 
     }
         
-      return console.log('Button id: ', id, 'Caption: ', rate);
-        
   }
 
   const onChangeVal = (id: string, value: string, type: string) => {
@@ -96,13 +91,17 @@ export const Modal = (props: Props) => {
 
     }
 
-    console.log('Id: ', id, 'Value: ', value);
-
   }
 
   const onCheckVal = (id: string, value: string) => {
 
       setAnswer(value);
+
+  }
+
+  const handleInputNumberValueChanged = (counter: number) => {
+
+    setChangedMonthsOfCommercialExp(counter);
 
   }
   
@@ -368,9 +367,19 @@ export const Modal = (props: Props) => {
       />
   ];
 
+  const monthsOfCommercialExp = [
+    <InputNumber 
+      minVal={0} 
+      maxVal={12} 
+      placeholder={'0 miesięcy'} 
+      key="Nr01" 
+      id="Nr01"
+      inputNumberValue={handleInputNumberValueChanged}
+    />];
+
   return (
-    // <Wrapper>
-      <div className="modalBackground">
+
+    <div className="modalBackground">
       <div className="modalContainer">
         <div className="title">
           <div>Filtrowanie</div>
@@ -402,48 +411,38 @@ export const Modal = (props: Props) => {
           options={targetWorkCity}
         >
         </SingleButtonedOption>
+
         <SingleButtonedOption
           labelName={'Oczekiwany typ kontraktu'}
           options={expectedContractType}
         >
         </SingleButtonedOption>
+
         <SingleLabeledOption
          labelName={'Oczekiwane wynagrodzenie miesięcznie netto'}
          options={expectedSalary}
         >  
         </SingleLabeledOption>
+
         <SingleLabeledRadioOption
           labelName={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
           options={yesNoOptions}
         >
         </SingleLabeledRadioOption>
-        <div className="optionElement">
-          <p className="label">Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu</p>
-          <div className="options">
-            {/* <input className="optionInput" type="number" placeholder="0 miesięcy" /> */}
-            <InputNumber minVal={0} maxVal={12} placeholder={'0 miesięcy'}/>
-          </div>
-        </div>
+
+        <SingleLabeledOption
+          labelName={'Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu'}
+          options={monthsOfCommercialExp}
+        >
+        </SingleLabeledOption>
+
         <div className="footer">
           <button className="cancel" onClick={() => closeModal(false)}>Anuluj</button>
           <Button children="Pokaż wynik"/>
         </div>
-        {/* <button onClick={() => closeModal(false)}> X </button>
-        <div className="title">
-          <h1>Are You Sure You Want To Continue?</h1>
-        </div>
-        <div className="body">
-          <p>The next page is awesome! You should move foreward, you will enjoy it.</p>
-        </div>
-        <div className="footer">
-          <button onClick={() => closeModal(false)}>Cancel</button>
-          <button>Contiune</button>
-          <Button children='to jest children' onClick={handleOnClick}/>
-        </div> */}
-        </div>
       </div>
-    // </Wrapper>
-    
+    </div>
+
   )
 
 };

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface Props {
 
+  id: string;
   minVal: number;
   maxVal: number;
   placeholder: string;
@@ -62,19 +63,17 @@ let acc = 0;
 
 export const InputNumber = (props: Props) => {
 
-  const [counter, setCounter] = useState(0);
-
   const { minVal, maxVal, placeholder } = props;
 
   const handleOnClickArrow = (sign: string, minVal: number, maxVal: number) => {
 
     if (sign === '+' && acc <= maxVal - 1) {
-
-      setCounter(++acc);
+      
+      ++acc;
 
       if (props.inputNumberValue) {
 
-        props.inputNumberValue(counter);
+        props.inputNumberValue(acc);
 
       };
 
@@ -82,11 +81,12 @@ export const InputNumber = (props: Props) => {
     
     if (sign === '-' && acc >= minVal + 1) {
 
-      setCounter(--acc);
+      --acc;
 
       if (props.inputNumberValue) {
 
-        props.inputNumberValue(counter);
+
+        props.inputNumberValue(acc);
 
       };
 
@@ -98,13 +98,17 @@ export const InputNumber = (props: Props) => {
 
     <StyledInputNumber>
       <div>
-        { acc ? counter : placeholder }
+        { acc ? acc : placeholder }
       </div>
       <StyledArrows>
-        <StyledArrowUp onClick={() => handleOnClickArrow('+', minVal, maxVal)} />
-        <StyledArrowDown onClick={() => handleOnClickArrow('-', minVal, maxVal)}/>
+        <StyledArrowUp onClick={
+          () => handleOnClickArrow('+', minVal, maxVal)
+          } />
+        <StyledArrowDown onClick={
+          () => handleOnClickArrow('-', minVal, maxVal)
+          }/>
       </StyledArrows>
     </StyledInputNumber>
 
   )
-};
+}
