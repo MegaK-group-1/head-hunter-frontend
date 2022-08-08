@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../Atoms/Button';
 import { Star } from '../Atoms/Star';
 
@@ -12,6 +12,7 @@ import { RadioBox } from '../Atoms/RadioBox';
 import { SingleLabeledRadioOption } from '../Molecules/SingleLabeledRadioOption';
 
 import './Modal.css';
+import { ClearButton } from '../Atoms/ClearButton';
 
 interface Props {
   id?: number;
@@ -28,8 +29,8 @@ export const Modal = (props: Props) => {
 
   const [markedTargetWorkCity, setMarkedTargetWorkCity] = useState('');
   const [markedExpectedContractType, setMarkedExpectedContractType] = useState('');
-  const [expectedSalaryMin, setExpectedSalaryMin] = useState(0);
-  const [expectedSalaryMax, setExpectedSalaryMax] = useState(0);
+  const [expectedSalaryMin, setExpectedSalaryMin] = useState('');
+  const [expectedSalaryMax, setExpectedSalaryMax] = useState('');
   const [answer, setAnswer] = useState('Nie');
   const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(0);
   
@@ -81,13 +82,13 @@ export const Modal = (props: Props) => {
 
     if (type === 'expectedSalaryMin') {
 
-      setExpectedSalaryMin(Number(value));
+      setExpectedSalaryMin(value);
 
     }
 
     if (type === 'expectedSalaryMax') {
 
-      setExpectedSalaryMax(Number(value));
+      setExpectedSalaryMax(value);
 
     }
 
@@ -102,6 +103,27 @@ export const Modal = (props: Props) => {
   const handleInputNumberValueChanged = (counter: number) => {
 
     setChangedMonthsOfCommercialExp(counter);
+
+  }
+
+  // useEffect(() => {
+  //   (async () => {
+  //     setExpectedSalaryMin('');
+  //   })();
+  // }, [expectedSalaryMin]);
+
+  const handleClearButton = () => {
+
+    setMarkedCourseCompletion('');
+    setMarkedCourseEngagment('');
+    setMarkedProjectDegree('');
+    setMarkedTeamProjectDegree('');
+    setMarkedTargetWorkCity('');
+    setMarkedExpectedContractType('');
+    setExpectedSalaryMin('');
+    setExpectedSalaryMax('');
+    setAnswer('Nie');
+    setChangedMonthsOfCommercialExp(0);
 
   }
   
@@ -339,6 +361,7 @@ export const Modal = (props: Props) => {
       id={'I01'}
       onChangeVal={onChangeVal}
       type={'expectedSalaryMin'}
+      value={expectedSalaryMin}
     />,
     <LabeledOptionInput 
       label='Do' 
@@ -347,6 +370,7 @@ export const Modal = (props: Props) => {
       id={'I02'}
       onChangeVal={onChangeVal}
       type={'expectedSalaryMax'}
+      value={expectedSalaryMax}
     />
   ];
 
@@ -383,7 +407,7 @@ export const Modal = (props: Props) => {
       <div className="modalContainer">
         <div className="title">
           <div>Filtrowanie</div>
-          <button className="clearAll">Wyczyść wszystkie</button>
+          <ClearButton children="Wyczyść wszystkie" onClick={handleClearButton}></ClearButton>
         </div>
 
         <SingleLabeledOption 

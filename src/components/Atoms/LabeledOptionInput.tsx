@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import react, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 
 interface Props {
@@ -6,6 +6,7 @@ interface Props {
   placeholder: string;
   label: string;
   type: string;
+  value: string;
   onChangeVal?: (id: string, value: string, type: string) => void;
 }
 
@@ -30,17 +31,13 @@ const StyledInput = styled.input`
 
 export const LabeledOptionInput = (props: Props) => {
 
-  const { placeholder, label, onChangeVal, type, id } = props;
-
-  const [inputVal, setInputVal] = useState('');
-
-  const handleOnChange = (e: any) => {
-
-    setInputVal(e.target.value)
+  const { placeholder, label, onChangeVal, type, value, id } = props;
+  
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
 
     if (onChangeVal) {
   
-      onChangeVal(id, inputVal, type);
+      onChangeVal(id, e.target.value, type);
       
     }
 
@@ -54,7 +51,7 @@ export const LabeledOptionInput = (props: Props) => {
         className="optionInput" 
         type="text" 
         placeholder={placeholder} 
-        value={inputVal}
+        value={value}
         onChange={handleOnChange}
       />
     </StyledLabel>
