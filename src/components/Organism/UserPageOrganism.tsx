@@ -65,15 +65,21 @@ export const UserPageOrganism = () => {
         courses: ""
     });
 
-    const updateData = (data: any) => {
-        setUserData(data);
-    }
-
+    // const updateField = (userData: React.SetStateAction<{ firstName: string; lastName: string; email: string; phone: string; githubUsername: string; portfolioUrls: string; bonusProjectUrls: string; bio: string; expectedContractType: string; expectedSalary: string; expectedTypeWork: string; targetWorkCity: string; canTakeApprenticeship: string; education: string; monthsOfCommercialExp: string; workExperience: string; courses: string; }>) => {
+    //     setUserData(
+    //         userData,
+    //     )
+    // }
+    //
+    // const updateData = (data: any) => {
+    //     setUserData(userData);
+    // }
+    //
     // const fetchUser = async () => {
-    //     await fetch('http://localhost:3001/users/')
+    //     await fetch(`http://localhost:3001/users/1`)
     //         .then((response) => response.json())
-    //         .then(userData => {useState(userData);
-    //         });
+    //         .then(response => updateField(response)
+    //         );
     // }
 
     return (
