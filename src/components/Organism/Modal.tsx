@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from 'react';
+import styled from 'styled-components';
 import { Button } from '../Atoms/Button';
 import { Star } from '../Atoms/Star';
 
@@ -11,9 +12,48 @@ import { LabeledOptionInput } from '../Atoms/LabeledOptionInput';
 import { RadioBox } from '../Atoms/RadioBox';
 import { SingleLabeledRadioOption } from '../Molecules/SingleLabeledRadioOption';
 
-import './Modal.css';
 import { ClearButton } from '../Atoms/ClearButton';
 import { CancelButton } from '../Atoms/CancelButton';
+
+const StyledModal = styled.div`
+
+  .modalBackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(10, 10, 10, 0.5);
+  }
+
+  .modalContainer {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    padding: 21px;
+    padding-bottom: 19px;
+    background-color: #0A0A0A;
+  }
+
+  .title {
+    margin-bottom: 11px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+`
+
+const StyledFooter = styled.div`
+
+  display: flex;
+  justify-content: right;
+
+`
 
 interface Props {
   id?: number;
@@ -427,71 +467,73 @@ export const Modal = (props: Props) => {
 
   return (
 
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="title">
-          <div>Filtrowanie</div>
-          <ClearButton children="Wyczyść wszystkie" onClick={handleClearButton}></ClearButton>
-        </div>
+    <StyledModal>
+      <div className="modalBackground">
+        <div className="modalContainer">
+          <div className="title">
+            <div>Filtrowanie</div>
+            <ClearButton children="Wyczyść wszystkie" onClick={handleClearButton}></ClearButton>
+          </div>
 
-        <SingleLabeledOption 
-          labelName={'Ocena przejścia kursu'} 
-          options={courseCompletition}>   
-        </SingleLabeledOption>
+          <SingleLabeledOption 
+            labelName={'Ocena przejścia kursu'} 
+            options={courseCompletition}>   
+          </SingleLabeledOption>
 
-        <SingleLabeledOption 
-          labelName={'Ocena aktywności i zaangażowania na kursie'} 
-          options={courseEngagment}>   
-        </SingleLabeledOption>
+          <SingleLabeledOption 
+            labelName={'Ocena aktywności i zaangażowania na kursie'} 
+            options={courseEngagment}>   
+          </SingleLabeledOption>
 
-        <SingleLabeledOption 
-          labelName={'Ocena kodu w projekcie własnym'} 
-          options={projectDegree}>   
-        </SingleLabeledOption>
+          <SingleLabeledOption 
+            labelName={'Ocena kodu w projekcie własnym'} 
+            options={projectDegree}>   
+          </SingleLabeledOption>
 
-        <SingleLabeledOption 
-          labelName={'Ocena pracy w zespole Scrum'} 
-          options={teamProjectDegree}>   
-        </SingleLabeledOption>
+          <SingleLabeledOption 
+            labelName={'Ocena pracy w zespole Scrum'} 
+            options={teamProjectDegree}>   
+          </SingleLabeledOption>
 
-        <SingleButtonedOption
-          labelName={'Preferowane miejsce pracy'}
-          options={targetWorkCity}
-        >
-        </SingleButtonedOption>
+          <SingleButtonedOption
+            labelName={'Preferowane miejsce pracy'}
+            options={targetWorkCity}
+          >
+          </SingleButtonedOption>
 
-        <SingleButtonedOption
-          labelName={'Oczekiwany typ kontraktu'}
-          options={expectedContractType}
-        >
-        </SingleButtonedOption>
+          <SingleButtonedOption
+            labelName={'Oczekiwany typ kontraktu'}
+            options={expectedContractType}
+          >
+          </SingleButtonedOption>
 
-        <SingleLabeledOption
-         labelName={'Oczekiwane wynagrodzenie miesięcznie netto'}
-         options={expectedSalary}
-        >  
-        </SingleLabeledOption>
+          <SingleLabeledOption
+          labelName={'Oczekiwane wynagrodzenie miesięcznie netto'}
+          options={expectedSalary}
+          >  
+          </SingleLabeledOption>
 
-        <SingleLabeledRadioOption
-          labelName={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
-          options={yesNoOptions}
-        >
-        </SingleLabeledRadioOption>
+          <SingleLabeledRadioOption
+            labelName={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
+            options={yesNoOptions}
+          >
+          </SingleLabeledRadioOption>
 
-        <SingleLabeledOption
-          labelName={'Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu'}
-          options={monthsOfCommercialExp}
-        >
-        </SingleLabeledOption>
+          <SingleLabeledOption
+            labelName={'Ilość miesięcy doświadczenia komercyjnego kandydata w programowaniu'}
+            options={monthsOfCommercialExp}
+          >
+          </SingleLabeledOption>
 
-        <div className="footer">
-          <CancelButton children="Anuluj" onClick={() => closeModal(false)}/>
-          <form onSubmit={setFiltersFromLocalState}>
-            <Button children="Pokaż wynik"/>
-          </form>
+          <StyledFooter>
+            <CancelButton children="Anuluj" onClick={() => closeModal(false)}/>
+            <form onSubmit={setFiltersFromLocalState}>
+              <Button children="Pokaż wynik"/>
+            </form>
+          </StyledFooter>
         </div>
       </div>
-    </div>
+    </StyledModal>
 
   )
 
