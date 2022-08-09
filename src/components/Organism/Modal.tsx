@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { Button } from '../Atoms/Button';
 import { Star } from '../Atoms/Star';
 
@@ -13,6 +13,7 @@ import { SingleLabeledRadioOption } from '../Molecules/SingleLabeledRadioOption'
 
 import './Modal.css';
 import { ClearButton } from '../Atoms/ClearButton';
+import { CancelButton } from '../Atoms/CancelButton';
 
 interface Props {
   id?: number;
@@ -20,20 +21,23 @@ interface Props {
   onClick?: () => void;
 }
 
-export const Modal = (props: Props) => {
-  
-  const [markedCourseCompletion, setMarkedCourseCompletion] = useState('');
-  const [markedCourseEngagment, setMarkedCourseEngagment] = useState('');
-  const [markedProjectDegree, setMarkedProjectDegree] = useState('');
-  const [markedTeamProjectDegree, setMarkedTeamProjectDegree] = useState('');
+const formDefault = {
+  markedCourseCompletion: "",
+  markedCourseEngagment: "",
+  markedProjectDegree: "",
+  markedTeamProjectDegree: "",
+  markedTargetWorkCity: "",
+  markedExpectedContractType: "",
+  expectedSalaryMin: "",
+  expectedSalaryMax: "",
+  answer: "Nie",
+  changedMonthsOfCommercialExp: 0,
+}
 
-  const [markedTargetWorkCity, setMarkedTargetWorkCity] = useState('');
-  const [markedExpectedContractType, setMarkedExpectedContractType] = useState('');
-  const [expectedSalaryMin, setExpectedSalaryMin] = useState('');
-  const [expectedSalaryMax, setExpectedSalaryMax] = useState('');
-  const [answer, setAnswer] = useState('Nie');
-  const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(0);
-  
+export const Modal = (props: Props) => {
+
+  const [form, setForm] = useState(formDefault);
+    
   const { closeModal } = props;
   
   const onClick = (id: number, rate: string, type?: string) => {
@@ -43,35 +47,51 @@ export const Modal = (props: Props) => {
       switch (type) {
 
         case 'courseCompletition':
-          setMarkedCourseCompletion(rate);
+          setForm({
+            ...form,
+            markedCourseCompletion: rate,
+          })
           break;
 
         case 'courseEngagment':
-          setMarkedCourseEngagment(rate);
+          setForm({
+            ...form,
+            markedCourseEngagment: rate,
+          })
           break;
       
         case 'projectDegree':
-          setMarkedProjectDegree(rate);
+          setForm({
+            ...form,
+            markedProjectDegree: rate,
+          })
           break;
 
         case 'teamProjectDegree':
-          setMarkedTeamProjectDegree(rate);
+          setForm({
+            ...form,
+            markedTeamProjectDegree: rate,
+          })
           break;
 
       }
       
     } 
     
-    console.log('Rate ', rate, 'Caption: ');
-
     switch (rate && type) {
 
       case 'targetWorkCity':
-        setMarkedTargetWorkCity(rate);
+        setForm({
+          ...form,
+          markedTargetWorkCity: rate,
+        })
         break;
 
       case 'expectedContractType':
-        setMarkedExpectedContractType(rate);
+        setForm({
+          ...form,
+          markedExpectedContractType: rate,
+        })
         break;
 
     }
@@ -82,13 +102,19 @@ export const Modal = (props: Props) => {
 
     if (type === 'expectedSalaryMin') {
 
-      setExpectedSalaryMin(value);
+      setForm({
+        ...form,
+        expectedSalaryMin: value,
+      })
 
     }
 
     if (type === 'expectedSalaryMax') {
 
-      setExpectedSalaryMax(value);
+      setForm({
+        ...form,
+        expectedSalaryMax: value,
+      })
 
     }
 
@@ -96,30 +122,33 @@ export const Modal = (props: Props) => {
 
   const onCheckVal = (id: string, value: string) => {
 
-      setAnswer(value);
+      setForm({
+        ...form,
+        answer: value,
+      })
 
   }
 
   const onSetVal = (value: number) => {
 
-    setChangedMonthsOfCommercialExp(value);
+    setForm({
+      ...form,
+      changedMonthsOfCommercialExp: value,
+    })
 
   }
 
   const handleClearButton = () => {
 
-    setMarkedCourseCompletion('');
-    setMarkedCourseEngagment('');
-    setMarkedProjectDegree('');
-    setMarkedTeamProjectDegree('');
-    setMarkedTargetWorkCity('');
-    setMarkedExpectedContractType('');
-    setExpectedSalaryMin('');
-    setExpectedSalaryMax('');
-    setAnswer('Nie');
-    setChangedMonthsOfCommercialExp(0);
-
+    setForm(formDefault);
+  
   }
+
+  const setFiltersFromLocalState = (e: SyntheticEvent) => {
+    e.preventDefault();
+    closeModal(false);
+    console.log('Działa!!!');
+  };
   
   const courseCompletition = [
     <Star 
@@ -127,7 +156,7 @@ export const Modal = (props: Props) => {
       key={15} 
       id={15} 
       onClick={onClick} 
-      rated={markedCourseCompletion} 
+      rated={form.markedCourseCompletion} 
       type={'courseCompletition'}
     />,
     <Star 
@@ -135,7 +164,7 @@ export const Modal = (props: Props) => {
       key={14} 
       id={14} 
       onClick={onClick} 
-      rated={markedCourseCompletion} 
+      rated={form.markedCourseCompletion} 
       type={'courseCompletition'}
     />, 
     <Star 
@@ -143,7 +172,7 @@ export const Modal = (props: Props) => {
       key={13} 
       id={13} 
       onClick={onClick} 
-      rated={markedCourseCompletion} 
+      rated={form.markedCourseCompletion} 
       type={'courseCompletition'}
     />,
     <Star 
@@ -151,7 +180,7 @@ export const Modal = (props: Props) => {
       key={12} 
       id={12} 
       onClick={onClick} 
-      rated={markedCourseCompletion} 
+      rated={form.markedCourseCompletion} 
       type={'courseCompletition'}
     />,
     <Star 
@@ -159,7 +188,7 @@ export const Modal = (props: Props) => {
       key={11} 
       id={11} 
       onClick={onClick} 
-      rated={markedCourseCompletion} 
+      rated={form.markedCourseCompletion} 
       type={'courseCompletition'}
     />
   ];
@@ -170,7 +199,7 @@ export const Modal = (props: Props) => {
       key={25} 
       id={25} 
       onClick={onClick} 
-      rated={markedCourseEngagment} 
+      rated={form.markedCourseEngagment} 
       type={'courseEngagment'}
     />, 
     <Star 
@@ -178,7 +207,7 @@ export const Modal = (props: Props) => {
       key={24} 
       id={24} 
       onClick={onClick} 
-      rated={markedCourseEngagment} 
+      rated={form.markedCourseEngagment} 
       type={'courseEngagment'}
     />, 
     <Star 
@@ -186,7 +215,7 @@ export const Modal = (props: Props) => {
       key={23} 
       id={23} 
       onClick={onClick} 
-      rated={markedCourseEngagment} 
+      rated={form.markedCourseEngagment} 
       type={'courseEngagment'}
     />,
     <Star 
@@ -194,7 +223,7 @@ export const Modal = (props: Props) => {
       key={22} 
       id={22} 
       onClick={onClick} 
-      rated={markedCourseEngagment} 
+      rated={form.markedCourseEngagment} 
       type={'courseEngagment'}
     />,
     <Star 
@@ -202,7 +231,7 @@ export const Modal = (props: Props) => {
       key={21} 
       id={21} 
       onClick={onClick} 
-      rated={markedCourseEngagment} 
+      rated={form.markedCourseEngagment} 
       type={'courseEngagment'}
     />
   ];
@@ -213,7 +242,7 @@ export const Modal = (props: Props) => {
       key={100} 
       id={100} 
       onClick={onClick} 
-      rated={markedTargetWorkCity}
+      rated={form.markedTargetWorkCity}
       type={'targetWorkCity'}
     />,
     <OptionButton 
@@ -221,7 +250,7 @@ export const Modal = (props: Props) => {
       key={101} 
       id={101}
       onClick={onClick}
-      rated={markedTargetWorkCity}
+      rated={form.markedTargetWorkCity}
       type={'targetWorkCity'}
     />
   ]
@@ -232,7 +261,7 @@ export const Modal = (props: Props) => {
       key={200} 
       id={200} 
       onClick={onClick} 
-      rated={markedExpectedContractType}
+      rated={form.markedExpectedContractType}
       type={'expectedContractType'}
     />,
     <OptionButton 
@@ -240,7 +269,7 @@ export const Modal = (props: Props) => {
       key={201} 
       id={201} 
       onClick={onClick} 
-      rated={markedExpectedContractType}
+      rated={form.markedExpectedContractType}
       type={'expectedContractType'}
     />,
     <OptionButton 
@@ -248,7 +277,7 @@ export const Modal = (props: Props) => {
       key={202} 
       id={202} 
       onClick={onClick} 
-      rated={markedExpectedContractType}
+      rated={form.markedExpectedContractType}
       type={'expectedContractType'}
     />,
     <OptionButton 
@@ -256,7 +285,7 @@ export const Modal = (props: Props) => {
       key={203} 
       id={203} 
       onClick={onClick} 
-      rated={markedExpectedContractType}
+      rated={form.markedExpectedContractType}
       type={'expectedContractType'}
     />
   ];
@@ -267,7 +296,7 @@ export const Modal = (props: Props) => {
       key={35} 
       id={35} 
       onClick={onClick} 
-      rated={markedProjectDegree}
+      rated={form.markedProjectDegree}
       type={'projectDegree'}
     />, 
     <Star 
@@ -275,7 +304,7 @@ export const Modal = (props: Props) => {
       key={34} 
       id={34} 
       onClick={onClick} 
-      rated={markedProjectDegree}
+      rated={form.markedProjectDegree}
       type={'projectDegree'}
     />, 
     <Star 
@@ -283,7 +312,7 @@ export const Modal = (props: Props) => {
       key={33} 
       id={33} 
       onClick={onClick} 
-      rated={markedProjectDegree}
+      rated={form.markedProjectDegree}
       type={'projectDegree'}
     />,
     <Star 
@@ -291,7 +320,7 @@ export const Modal = (props: Props) => {
       key={32} 
       id={32} 
       onClick={onClick} 
-      rated={markedProjectDegree}
+      rated={form.markedProjectDegree}
       type={'projectDegree'}
     />,
     <Star 
@@ -299,7 +328,7 @@ export const Modal = (props: Props) => {
       key={31} 
       id={31} 
       onClick={onClick} 
-      rated={markedProjectDegree}
+      rated={form.markedProjectDegree}
       type={'projectDegree'}
     />
   ];
@@ -310,7 +339,7 @@ export const Modal = (props: Props) => {
       key={45} 
       id={45} 
       onClick={onClick} 
-      rated={markedTeamProjectDegree} 
+      rated={form.markedTeamProjectDegree} 
       type={'teamProjectDegree'}
     />, 
     <Star 
@@ -318,7 +347,7 @@ export const Modal = (props: Props) => {
       key={44} 
       id={44} 
       onClick={onClick} 
-      rated={markedTeamProjectDegree} 
+      rated={form.markedTeamProjectDegree} 
       type={'teamProjectDegree'}
     />, 
     <Star 
@@ -326,7 +355,7 @@ export const Modal = (props: Props) => {
       key={43} 
       id={43} 
       onClick={onClick} 
-      rated={markedTeamProjectDegree} 
+      rated={form.markedTeamProjectDegree} 
       type={'teamProjectDegree'}
     />,
     <Star 
@@ -334,7 +363,7 @@ export const Modal = (props: Props) => {
       key={42} 
       id={42} 
       onClick={onClick} 
-      rated={markedTeamProjectDegree} 
+      rated={form.markedTeamProjectDegree} 
       type={'teamProjectDegree'}
     />,
     <Star 
@@ -342,7 +371,7 @@ export const Modal = (props: Props) => {
       key={41} 
       id={41} 
       onClick={onClick} 
-      rated={markedTeamProjectDegree} 
+      rated={form.markedTeamProjectDegree} 
       type={'teamProjectDegree'}
     />
   ];
@@ -355,7 +384,7 @@ export const Modal = (props: Props) => {
       id={'I01'}
       onChangeVal={onChangeVal}
       type={'expectedSalaryMin'}
-      value={expectedSalaryMin}
+      value={form.expectedSalaryMin}
     />,
     <LabeledOptionInput 
       label='Do' 
@@ -364,7 +393,7 @@ export const Modal = (props: Props) => {
       id={'I02'}
       onChangeVal={onChangeVal}
       type={'expectedSalaryMax'}
-      value={expectedSalaryMax}
+      value={form.expectedSalaryMax}
     />
   ];
 
@@ -374,14 +403,14 @@ export const Modal = (props: Props) => {
       key="Y01"
       id="Y01"
       onChange={onCheckVal}
-      answer={answer}
+      answer={form.answer}
       />, 
     <RadioBox 
       caption="Nie" 
       key="N01"
       id="N01"
       onChange={onCheckVal}
-      answer={answer}
+      answer={form.answer}
       />
   ];
 
@@ -393,7 +422,7 @@ export const Modal = (props: Props) => {
       key="Nr01" 
       id="Nr01"
       onSetVal={onSetVal}
-      value={changedMonthsOfCommercialExp}
+      value={form.changedMonthsOfCommercialExp}
     />];
 
   return (
@@ -456,8 +485,10 @@ export const Modal = (props: Props) => {
         </SingleLabeledOption>
 
         <div className="footer">
-          <button className="cancel" onClick={() => closeModal(false)}>Anuluj</button>
-          <Button children="Pokaż wynik"/>
+          <CancelButton children="Anuluj" onClick={() => closeModal(false)}/>
+          <form onSubmit={setFiltersFromLocalState}>
+            <Button children="Pokaż wynik"/>
+          </form>
         </div>
       </div>
     </div>
