@@ -13,9 +13,14 @@ const StyledRatingElement = styled.div`
   flex-direction: column;
   margin-bottom: 20px;
   color: #F7F7F7;
+  font: normal normal 500 14px/23px Catamaran;
 
   .ratings {
     display: flex;
+  }
+
+  p.label {
+    padding-bottom: 3px;
   }
 
 `
@@ -27,7 +32,7 @@ export const SingleLabeledOption = (props: Props) => {
   return(
     
     <StyledRatingElement>
-      {labelName}
+      <p className="label">{labelName}</p>
       <div className="ratings">
         {options}
       </div>

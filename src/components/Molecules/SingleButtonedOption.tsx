@@ -15,6 +15,7 @@ const StyledButtonedElement = styled.div`
 
   p.label {
     color: #F7F7F7;
+    padding-bottom: 3px;
   }
 
   .singleOption {
