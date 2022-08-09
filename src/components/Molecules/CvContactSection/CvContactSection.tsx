@@ -4,52 +4,60 @@ import { HeadTitle } from "../../Atoms/HeadTitle";
 import { GithubHyperlink } from "../../Atoms/GithubHyperlink";
 import { TelHyperlink } from "../../Atoms/TelHyperlink";
 import { MailHyperlink } from "../../Atoms/MailHyperlink";
-import { Button } from "../../Atoms/Button";
-import { Container } from "./CvSectionAtoms/Container";
-import { Positioner } from "./CvSectionAtoms/Positioner";
+import { Button, ButtonSize } from "../../Atoms/Button";
+import { CvPositioner } from "../../Atoms/CvPositioner";
 import { UnderTitle } from "../../Atoms/UnderTitle";
-import { Description } from "./CvSectionAtoms/Description";
-import { TestUser } from "../../../utils/TestUser";
+import { CvContactContainer } from "../../Atoms/CvContactContainer";
+import { CvDescription } from "../../Atoms/CvDescription";
+import { CvBase } from "../../../utils/TestUser";
 
-export function CvContactSection() {
-  const { avatar, name, githubLink, tel, email, description } = TestUser;
+interface Props {
+  userDetails: CvBase;
+}
+
+export function CvContactSection(props: Props) {
+  const { userDetails } = props;
+  const { avatar, name, githubLink, tel, email, description } = userDetails;
 
   return (
-    <Container>
+    <CvContactContainer>
       <Avatar
         big
         src={avatar}
       />
-
       <HeadTitle>{name}</HeadTitle>
-
       <GithubHyperlink href={githubLink}>{name}</GithubHyperlink>
 
-      <Positioner height="80px">
+      <CvPositioner height="15%">
         <TelHyperlink href={tel}>{tel}</TelHyperlink>
-
         <MailHyperlink href={email}>{email}</MailHyperlink>
-      </Positioner>
+      </CvPositioner>
 
-      <Positioner>
-        <UnderTitle>O mnie</UnderTitle>
-        <Description>{description}</Description>
-      </Positioner>
+      <CvPositioner
+        scroll
+        height="70%"
+      >
+        <UnderTitle color="#4D4D4D">O mnie</UnderTitle>
+        <CvDescription>{description}</CvDescription>
+      </CvPositioner>
 
-      <Positioner>
+      <CvPositioner height="30%">
         <Button
-          onCLick={() => true}
-          long
+          width="80%"
+          size={ButtonSize.big}
+          onClick={() => true}
         >
-          Brak Zainteresowania
+          Brak zainteresowania
         </Button>
+
         <Button
-          onCLick={() => true}
-          long
+          width="80%"
+          size={ButtonSize.big}
+          onClick={() => true}
         >
           Zatrudniony
         </Button>
-      </Positioner>
-    </Container>
+      </CvPositioner>
+    </CvContactContainer>
   );
 }
