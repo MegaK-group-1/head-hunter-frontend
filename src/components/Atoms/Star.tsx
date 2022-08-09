@@ -12,15 +12,14 @@ interface Props {
 
 const StarRed = styled(FaStar)`
 
-width: 19px;
-height: 19px;
-margin-left: 4px;
-color: E02735;
+  width: 12px;
+  height: 11px;
+  margin-left: 4px;
 
-:hover {
-  background-color: #E02735;
-  color: #F7F7F7;
-}
+  :hover {
+    background-color: #E02735;
+    color: #F7F7F7;
+  }
 
 `
 
@@ -33,12 +32,21 @@ const StyledRatingVal = styled.div`
   justify-content: center;
   align-items: center;
   background: #292A2B 0% 0% no-repeat padding-box;
+  
+  .ratings {
+    color: #E02735;
+  }
 
-  :hover {
+  .star {
+    color: #E02735;
+  }
+
+  :hover,
+  :hover .star {
     background-color: #E02735;
     color: #F7F7F7;
   }
-
+  
 `
 
  const StyledRatingValSelected = styled.div`
@@ -53,7 +61,7 @@ const StyledRatingVal = styled.div`
 
   :hover {
    color: #F7F7F7;
- }
+  }
 
 `
 
@@ -77,14 +85,14 @@ export const Star = (props: Props) => {
 
     show = <StyledRatingValSelected onClick={handleOnClick}>
       <p>{rate}</p>
-      <StarRed />
+      <StarRed className="star"/>
     </StyledRatingValSelected>
 
   } else {
 
     show = <StyledRatingVal onClick={handleOnClick}>
       <p>{rate}</p>
-      <StarRed />
+      <StarRed className="star"/>
     </StyledRatingVal>
 
   }
