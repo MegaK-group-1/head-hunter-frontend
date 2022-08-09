@@ -6,6 +6,7 @@ import { AdminPage } from "./components/Organism/AdminPage";
 import CsvReader from "./Pages/CsvReader/CsvReader";
 import { AddHR } from "./components/Organism/AddHR";
 import { AvailableStudentsPage } from "./Pages/AvailableStudentsPage/AvailableStudentsPage";
+import { ReservedStudentsPage } from "./Pages/ReservedStudentsPage/ReservedStudentsPage";
 
 function App() {
   return (
@@ -19,7 +20,11 @@ function App() {
         element={<AvailableStudentsPage />}
       />
       <Route
-        path="/cv"
+        path="/reserved-students"
+        element={<ReservedStudentsPage />}
+      />
+      <Route
+        path="/student/:id"
         element={<CvPage />}
       />
       <Route
