@@ -1,10 +1,9 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import styled from "styled-components";
-import {Input} from "../../Atoms/Input";
-import {StyledLink} from "../../Atoms/Link";
-import {Button} from "../../Atoms/Button";
-import {Paragraph} from "../../Atoms/Paragraph";
-
+import { Input } from "../../Atoms/Input";
+import { StyledLink } from "../../Atoms/Link";
+import { Button, ButtonSize } from "../../Atoms/Button";
+import { Paragraph } from "../../Atoms/Paragraph";
 
 const StyledForm = styled.form`
   display: flex;
@@ -13,8 +12,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   max-width: 90%;
   padding: 15px;
-
-`
+`;
 
 const PositionWrapper = styled.div`
   width: 100%;
@@ -38,26 +36,28 @@ export function LoginForm() {
         placeholder="E-mail"
       />
 
-            <Input
-                type="password"
-                autoComplete="on"
-                placeholder="Hasło"/>
+      <Input
+        type="password"
+        autoComplete="on"
+        placeholder="Hasło"
+      />
 
-            <StyledLink
-                align="flex-end"
-                to='/password-reset'>
-                Zapomniałeś Hasła?
-            </StyledLink>
+      <StyledLink
+        align="flex-end"
+        to="/password-reset"
+      >
+        Zapomniałeś Hasła?
+      </StyledLink>
 
-            <PositionWrapper>
-
-                <Paragraph>Nie masz konta?</Paragraph>
-                <StyledLink
-                    decoration="underline"
-                    align="center"
-                    to='/register'>
-                    Zarejestruj się
-                </StyledLink>
+      <PositionWrapper>
+        <Paragraph>Nie masz konta?</Paragraph>
+        <StyledLink
+          decoration="underline"
+          align="center"
+          to="/register"
+        >
+          Zarejestruj się
+        </StyledLink>
 
         <Button
           width="20%"
