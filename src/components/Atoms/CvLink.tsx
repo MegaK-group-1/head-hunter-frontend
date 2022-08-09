@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -6,6 +6,7 @@ interface Props {
   children: string;
   width?: string;
   to: string;
+  onClick?: MouseEventHandler;
 }
 
 const StyledCvLink = styled(NavLink)<Props>`
@@ -28,12 +29,13 @@ const StyledCvLink = styled(NavLink)<Props>`
 `;
 
 export function CvLink(props: Props) {
-  const { children, width, to } = props;
+  const { children, width, to, onClick } = props;
 
   return (
     <StyledCvLink
       width={width}
       to={`/student/:${to}`}
+      onClick={onClick}
     >
       {children}
     </StyledCvLink>
