@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 interface Props {
   children: string;
   to: string;
-  align: string;
+  align?: string;
   decoration?: string;
 }
 
