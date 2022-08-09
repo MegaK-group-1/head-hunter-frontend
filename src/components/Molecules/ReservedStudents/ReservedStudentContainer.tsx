@@ -49,6 +49,7 @@ export function ReservedStudentContainer(props: Props) {
     setOpen(!isOpen);
   };
 
+  // @TODO Create Avatar and Register HeadTitle for each Student.
   return (
     <>
       <StudentsHeadPart
