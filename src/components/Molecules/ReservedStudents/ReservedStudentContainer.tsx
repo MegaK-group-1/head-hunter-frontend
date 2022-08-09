@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { Button, ButtonSize } from "../../Atoms/Button";
 import { StudentsArrowButton } from "../../Atoms/StudentsArrowButton";
@@ -7,6 +7,7 @@ import { StudentsHeadPart } from "../../Atoms/StudentsHeadPart";
 import { StudentsExpectationSection } from "../../Atoms/StudentsExpectationSection";
 import { StudentDetails } from "../../../utils/types/user";
 import { CvLink } from "../../Atoms/CvLink";
+import { StudentCvDetails } from "../../../utils/Context/StudentCvDetails";
 
 interface Props {
   details: StudentDetails;
@@ -30,7 +31,7 @@ export function ReservedStudentContainer(props: Props) {
   const { details } = props;
   const [userDetails] = useState(details);
   const [isOpen, setOpen] = useState(false);
-
+  const UserDetails = useContext(StudentCvDetails);
   const handleUninterested = () => {
     // here is going to be fetch for backend that this student is no more reserved
     return true;
@@ -38,6 +39,10 @@ export function ReservedStudentContainer(props: Props) {
   const handleHired = () => {
     // there will be fetch that tells this person is hired!
     return true;
+  };
+  const handleCvDetails = () => {
+    // set Context with all details needed.
+    UserDetails.setDetails(details);
   };
   const handleOpening = () => {
     setOpen(false);
@@ -59,7 +64,12 @@ export function ReservedStudentContainer(props: Props) {
           </UnderTitle>
         </Positioner>
         <Positioner>
-          <CvLink to={details.id}>Pokaz CV</CvLink>
+          <CvLink
+            onClick={handleCvDetails}
+            to={details.id}
+          >
+            Pokaz CV
+          </CvLink>
           <Button
             onClick={handleUninterested}
             size={ButtonSize.small}

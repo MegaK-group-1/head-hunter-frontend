@@ -14,6 +14,7 @@ export function ReservedStudentsOrganism() {
       setStudents(await getAllStudents());
     })();
   }, []);
+
   return (
     <Wrapper verticalStart="flex-start">
       <StudentsViewWrapper>
