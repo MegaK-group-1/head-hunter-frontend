@@ -32,7 +32,7 @@ export const Modal = (props: Props) => {
   const [expectedSalaryMin, setExpectedSalaryMin] = useState('');
   const [expectedSalaryMax, setExpectedSalaryMax] = useState('');
   const [answer, setAnswer] = useState('Nie');
-  const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(1);
+  const [changedMonthsOfCommercialExp, setChangedMonthsOfCommercialExp] = useState(0);
   
   const { closeModal } = props;
   
@@ -105,12 +105,6 @@ export const Modal = (props: Props) => {
     setChangedMonthsOfCommercialExp(value);
 
   }
-
-  // const handleInputNumberValueChanged = (counter: number) => {
-
-  //   setChangedMonthsOfCommercialExp(counter);
-
-  // }
 
   const handleClearButton = () => {
 
