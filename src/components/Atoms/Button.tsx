@@ -34,13 +34,13 @@ const StyledButton = styled.button<Props>`
 
   @media (max-width: 700px) {
     letter-spacing: ${({ squeeze }) => (squeeze ? "0" : "2px")};
-    font-size: 0.7em;
-    height: 30px;
-    width: 120px;
+    font-size: ${({ squeeze }) => (squeeze ? "0.7em" : "auto")};
+    height: ${({ squeeze }) => (squeeze ? "30px" : "39px")};
+    width: ${({ squeeze, width }) => (squeeze ? "120px" : width)};
   }
 
   @media (max-width: 800px) {
-    font-size: 0.75em;
+    font-size: ${({ squeeze }) => (squeeze ? "0.75em" : "auto")};
   }
 `;
 
