@@ -9,15 +9,24 @@ import { CvPositioner } from "../../Atoms/CvPositioner";
 import { UnderTitle } from "../../Atoms/UnderTitle";
 import { CvContactContainer } from "../../Atoms/CvContactContainer";
 import { CvDescription } from "../../Atoms/CvDescription";
-import { CvBase } from "../../../utils/TestUser";
+import { CvDetailsInterface } from "../../../utils/types/CvDetailsInterface";
 
 interface Props {
-  userDetails: CvBase;
+  userDetails: CvDetailsInterface;
 }
 
 export function CvContactSection(props: Props) {
   const { userDetails } = props;
-  const { avatar, name, githubLink, tel, email, description } = userDetails;
+  const {
+    avatar,
+    firstName,
+    lastName,
+    githubUsername,
+    phone,
+    mail,
+    bio,
+    githubLink,
+  } = userDetails;
 
   return (
     <CvContactContainer>
@@ -25,12 +34,14 @@ export function CvContactSection(props: Props) {
         big
         src={avatar}
       />
-      <HeadTitle>{name}</HeadTitle>
-      <GithubHyperlink href={githubLink}>{name}</GithubHyperlink>
+      <HeadTitle>
+        {firstName} {lastName}
+      </HeadTitle>
+      <GithubHyperlink href={githubLink}>{githubUsername}</GithubHyperlink>
 
       <CvPositioner height="15%">
-        <TelHyperlink href={tel}>{tel}</TelHyperlink>
-        <MailHyperlink href={email}>{email}</MailHyperlink>
+        <TelHyperlink href={phone}>{phone}</TelHyperlink>
+        <MailHyperlink href={mail}>{mail}</MailHyperlink>
       </CvPositioner>
 
       <CvPositioner
@@ -38,7 +49,7 @@ export function CvContactSection(props: Props) {
         height="70%"
       >
         <UnderTitle color="#4D4D4D">O mnie</UnderTitle>
-        <CvDescription>{description}</CvDescription>
+        <CvDescription>{bio}</CvDescription>
       </CvPositioner>
 
       <CvPositioner height="30%">

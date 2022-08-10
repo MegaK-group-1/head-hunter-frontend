@@ -32,7 +32,7 @@ export function ReservedStudentContainer(props: Props) {
   const [userDetails] = useState(details);
   const [isOpen, setOpen] = useState(false);
   const UserDetails = useContext(StudentCvDetails);
-  const handleUninterested = () => {
+  const handleUninterested = async () => {
     // here is going to be fetch for backend that this student is no more reserved
     return true;
   };
@@ -40,9 +40,9 @@ export function ReservedStudentContainer(props: Props) {
     // there will be fetch that tells this person is hired!
     return true;
   };
-  const handleCvDetails = () => {
-    // set Context with all details needed.
-    UserDetails.setDetails(details);
+  const handleCvDetails = async () => {
+    // set Context id to fetch the right data on Cv Page view
+    UserDetails.id = userDetails.id;
   };
   const handleOpening = () => {
     setOpen(false);

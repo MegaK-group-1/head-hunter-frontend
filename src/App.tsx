@@ -8,13 +8,14 @@ import { AddHR } from "./components/Organism/AddHR";
 import { AvailableStudentsPage } from "./Pages/AvailableStudentsPage/AvailableStudentsPage";
 import { ReservedStudentsPage } from "./Pages/ReservedStudentsPage/ReservedStudentsPage";
 import { StudentCvDetails } from "./utils/Context/StudentCvDetails";
+import { CvDetailsInterface } from "./utils/types/CvDetailsInterface";
 
 function App() {
-  const [student, setStudent] = useState({});
+  const [student, setStudent] = useState({} as CvDetailsInterface);
   return (
     <StudentCvDetails.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
-      value={{ cvDetails: student, setDetails: setStudent }}
+      value={{ cvDetails: student, id: "", setDetails: setStudent }}
     >
       <Routes>
         <Route

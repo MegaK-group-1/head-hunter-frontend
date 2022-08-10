@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Wrapper } from "../Atoms/Wrapper";
 import { CvContactSection } from "../Molecules/CvPageMolecules/CvContactSection";
@@ -10,7 +10,7 @@ import { PortfolioSection } from "../Molecules/CvPageMolecules/PortfolioSection"
 import { ScrumProjectSection } from "../Molecules/CvPageMolecules/ScrumProjectSection";
 import { FinalExamProjectSection } from "../Molecules/CvPageMolecules/FinalExamProjectSection";
 import { ExpectationsSection } from "../Molecules/CvPageMolecules/ExpectationsSection";
-import { cvDetails, FinalCvInterface } from "../../utils/TestUser";
+import { CvDetailsInterface } from "../../utils/types/CvDetailsInterface";
 
 const PositionContainer = styled.div`
   display: flex;
@@ -36,34 +36,27 @@ const FlexContainer = styled.div`
   flex-direction: column;
 `;
 
-export function CvOrganism() {
-  // @TODO Please Create UseContext for getting the right data here
-  const [userDetails] = useState(cvDetails as FinalCvInterface);
-  const {
-    base,
-    grades,
-    expectations,
-    education,
-    courses,
-    experinceAtWork,
-    portfolio,
-    scrumProject,
-    finalProject,
-  } = userDetails;
+interface Props {
+  userDetails: CvDetailsInterface;
+}
 
+export function CvOrganism(props: Props) {
+  // @TODO Please Create UseContext for getting the right data here
+  const { userDetails } = props;
+  const { education, courses, workExperience, portfolioUrls } = userDetails;
   return (
     <Wrapper>
       <PositionContainer>
-        <CvContactSection userDetails={base} />
+        <CvContactSection userDetails={userDetails} />
         <FlexContainer>
-          <GradesSection userGrades={grades} />
-          <ExpectationsSection userDetails={expectations} />
+          <GradesSection userGrades={userDetails} />
+          <ExpectationsSection userDetails={userDetails} />
           <EducationSection education={education} />
           <CoursesSection courses={courses} />
-          <ExperienceSection experience={experinceAtWork} />
-          <PortfolioSection portfolio={portfolio} />
-          <ScrumProjectSection scrumProjects={scrumProject} />
-          <FinalExamProjectSection finalProjects={finalProject} />
+          <ExperienceSection experience={workExperience} />
+          <PortfolioSection portfolio={portfolioUrls} />
+          <ScrumProjectSection scrumProjects={portfolioUrls} />
+          <FinalExamProjectSection finalProjects={portfolioUrls} />
         </FlexContainer>
       </PositionContainer>
     </Wrapper>

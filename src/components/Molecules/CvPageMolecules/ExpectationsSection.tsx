@@ -2,13 +2,13 @@ import React from "react";
 import { CvHeadLabel } from "../../Atoms/CvHeadLabel";
 import { HeadTitle } from "../../Atoms/HeadTitle";
 import { CvUnderTitleSection } from "../../Atoms/CvUnderTitleSection";
-import { CvExpectations } from "../../../utils/TestUser";
 import { CvFlexContainer } from "../../Atoms/CvFlexContainer";
 import { GridContainer } from "../../Atoms/GridContainer";
 import { UnderTitle } from "../../Atoms/UnderTitle";
+import { CvDetailsInterface } from "../../../utils/types/CvDetailsInterface";
 
 interface ExpectationsDetails {
-  userDetails: CvExpectations;
+  userDetails: CvDetailsInterface;
 }
 
 enum UnderTitleOptions {
@@ -23,12 +23,12 @@ enum UnderTitleOptions {
 export function ExpectationsSection(props: ExpectationsDetails) {
   const { userDetails } = props;
   const {
-    workPlacePreffer,
-    prefferCity,
+    workExperience,
+    targetWorkCity,
+    expectedTypeWork,
+    canTakeApprenticeship,
     expectedContractType,
     expectedSalary,
-    consentForFreeInternships,
-    commercialProgrammingExperience,
   } = userDetails;
 
   return (
@@ -48,7 +48,7 @@ export function ExpectationsSection(props: ExpectationsDetails) {
             >
               {UnderTitleOptions.location}
             </UnderTitle>
-            <UnderTitle>{workPlacePreffer}</UnderTitle>
+            <UnderTitle>{expectedTypeWork}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
@@ -60,7 +60,7 @@ export function ExpectationsSection(props: ExpectationsDetails) {
             >
               {UnderTitleOptions.city}
             </UnderTitle>
-            <UnderTitle>{prefferCity}</UnderTitle>
+            <UnderTitle>{targetWorkCity}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
@@ -96,7 +96,7 @@ export function ExpectationsSection(props: ExpectationsDetails) {
             >
               {UnderTitleOptions.trial}
             </UnderTitle>
-            <UnderTitle>{consentForFreeInternships}</UnderTitle>
+            <UnderTitle>{canTakeApprenticeship}</UnderTitle>
           </CvFlexContainer>
 
           <CvFlexContainer borderR>
@@ -108,7 +108,7 @@ export function ExpectationsSection(props: ExpectationsDetails) {
             >
               {UnderTitleOptions.experince}
             </UnderTitle>
-            <UnderTitle>{commercialProgrammingExperience}</UnderTitle>
+            <UnderTitle>{workExperience}</UnderTitle>
           </CvFlexContainer>
         </GridContainer>
       </CvUnderTitleSection>
