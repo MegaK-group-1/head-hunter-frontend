@@ -8,6 +8,7 @@ export interface CvBase {
   tel: string;
   email: string;
   description: string;
+  githubUsername: string;
 }
 
 export interface CvGrades {
@@ -57,6 +58,7 @@ export const cvDetails = {
     avatar: testAvatar,
     name: "Jan Kowalski",
     githubLink: "https://github.com/",
+    githubUsername: "Ami777",
     tel: "+48 566 072 227",
     email: "yourEmail@gmail.com",
     description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
@@ -101,6 +103,7 @@ export const cvDetailsTwo = {
     avatar: testAvatar2,
     name: "Anna Nowak",
     githubLink: "https://github.com/",
+    githubUsername: "Ami777",
     tel: "+48 227 566 072 ",
     email: "yourEmail@gmail.com",
     description: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
