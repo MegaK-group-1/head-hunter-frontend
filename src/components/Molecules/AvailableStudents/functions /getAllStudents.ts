@@ -1,4 +1,5 @@
 import { GetAllUsers, StudentDetails } from "../../../../utils/types/user";
+import avatar from "../../../../assets/images/testAvatar.png";
 
 export const getAllStudents = (): Promise<StudentDetails[]> => {
   const fetchData = async () => {
@@ -21,6 +22,7 @@ export const getAllStudents = (): Promise<StudentDetails[]> => {
       } = u.userDetails;
       return {
         id,
+        avatar,
         firstName: u.firstName,
         lastName: u.lastName,
         courseCompletion,
