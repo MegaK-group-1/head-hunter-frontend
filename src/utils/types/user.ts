@@ -55,6 +55,7 @@ export interface GetAllUsers {
 }
 
 export interface StudentDetails {
+  avatar: string;
   id: string;
   firstName: string;
   lastName: string;
