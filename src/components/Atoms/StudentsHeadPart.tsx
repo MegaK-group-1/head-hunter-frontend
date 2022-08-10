@@ -23,7 +23,7 @@ export const StudentsHeadPart = styled.div<Props>`
     height: ${({ squeeze }) => (squeeze ? "140px" : "70px")};
     flex-wrap: ${({ squeeze }) => (squeeze ? "wrap" : "nowrap")};
   }
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     justify-content: space-around;
     height: ${({ squeeze }) => (squeeze ? "300px" : "70px")};
   } ;

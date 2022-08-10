@@ -15,18 +15,20 @@ const StyledCvLink = styled(NavLink)<Props>`
   letter-spacing: 2px;
   background-color: #e12735;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   border: none;
   align-self: center;
   transition: 0.2s linear;
   text-decoration: none;
-  padding: 10px 5px;
-  font-size: 0.8em;
+  font-size: 0.7em;
   :hover {
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 750px) {
     font-size: 0.7em;
     height: 30px;
     width: 120px;

@@ -31,7 +31,7 @@ const Positioner = styled.div<PosProps>`
     width: 70%;
     gap: 5px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 750px) {
     flex-direction: ${({ squeeze }) => (squeeze ? "row" : "column")};
   }
 `;
