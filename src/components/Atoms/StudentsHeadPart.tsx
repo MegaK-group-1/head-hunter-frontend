@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface Props {
   isOpen?: boolean;
   justify?: string;
+  squeeze?: boolean;
 }
 export const StudentsHeadPart = styled.div<Props>`
   display: flex;
@@ -17,7 +18,13 @@ export const StudentsHeadPart = styled.div<Props>`
   z-index: 5;
   overflow: hidden;
 
-  @media (max-width: 700px) {
+  @media (max-width: 1000px) {
     justify-content: space-around;
+    height: ${({ squeeze }) => (squeeze ? "140px" : "70px")};
+    flex-wrap: ${({ squeeze }) => (squeeze ? "wrap" : "nowrap")};
+  }
+  @media (max-width: 600px) {
+    justify-content: space-around;
+    height: ${({ squeeze }) => (squeeze ? "300px" : "70px")};
   } ;
 `;

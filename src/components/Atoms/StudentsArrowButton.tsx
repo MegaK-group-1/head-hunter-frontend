@@ -9,6 +9,8 @@ interface Props {
 const Arrow = styled(MdKeyboardArrowDown)`
   width: 100%;
   height: 100%;
+  min-width: 30px;
+  min-height: 30px;
 `;
 
 const Button = styled.button<Props>`

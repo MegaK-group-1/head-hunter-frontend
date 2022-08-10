@@ -8,29 +8,39 @@ import { StudentsExpectationSection } from "../../Atoms/StudentsExpectationSecti
 import { StudentDetails } from "../../../utils/types/user";
 import { CvLink } from "../../Atoms/CvLink";
 import { StudentCvDetails } from "../../../utils/Context/StudentCvDetails";
+import { Avatar } from "../../Atoms/Avatar";
 
 interface Props {
   details: StudentDetails;
 }
 
-const Positioner = styled.div`
+interface PosProps {
+  direction?: string;
+  squeeze?: boolean;
+}
+
+const Positioner = styled.div<PosProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: ${({ direction }) => direction || "row"};
   padding: 10px;
-  gap: 25px;
-  @media (max-width: 700px) {
-    font-size: 0.7em;
+  gap: ${({ direction }) => (direction ? "5px" : "25px")};
+  @media (max-width: 1000px) {
+    font-size: 0.8em;
     width: 70%;
     gap: 5px;
+  }
+  @media (max-width: 600px) {
+    flex-direction: ${({ squeeze }) => (squeeze ? "row" : "column")};
   }
 `;
 
 export function ReservedStudentContainer(props: Props) {
+  const [isOpen, setOpen] = useState(false);
   const { details } = props;
   const [userDetails] = useState(details);
-  const [isOpen, setOpen] = useState(false);
+  const { avatar } = userDetails;
   const UserDetails = useContext(StudentCvDetails);
   const handleUninterested = async () => {
     // here is going to be fetch for backend that this student is no more reserved
@@ -53,10 +63,27 @@ export function ReservedStudentContainer(props: Props) {
   return (
     <>
       <StudentsHeadPart
+        squeeze
         key={details.id}
         isOpen={isOpen}
       >
         <Positioner>
+          <Positioner direction="column">
+            <UnderTitle
+              fontWeight="normal"
+              color="#CFCFCF"
+              fontSize=".8em"
+            >
+              Rezerwacja do
+            </UnderTitle>
+            <UnderTitle
+              fontWeight="bold"
+              color="white"
+            >
+              12.09.2022
+            </UnderTitle>
+          </Positioner>
+          <Avatar src={avatar} />
           <UnderTitle
             fontWeight="normal"
             color="white"
@@ -72,12 +99,14 @@ export function ReservedStudentContainer(props: Props) {
             Pokaz CV
           </CvLink>
           <Button
+            squeeze
             onClick={handleUninterested}
             size={ButtonSize.small}
           >
             Brak zainteresowania
           </Button>
           <Button
+            squeeze
             onClick={handleHired}
             size={ButtonSize.small}
           >

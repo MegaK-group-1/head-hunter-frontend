@@ -6,6 +6,7 @@ interface Props {
   onClick?: MouseEventHandler;
   size: ButtonSize;
   width?: string;
+  squeeze?: boolean;
 }
 
 export enum ButtonSize {
@@ -30,16 +31,28 @@ const StyledButton = styled.button<Props>`
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
   }
+
+  @media (max-width: 700px) {
+    letter-spacing: ${({ squeeze }) => (squeeze ? "0" : "2px")};
+    font-size: 0.7em;
+    height: 30px;
+    width: 120px;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 0.75em;
+  }
 `;
 
 export function Button(props: Props) {
-  const { children, onClick, size, width } = props;
+  const { children, onClick, size, width, squeeze } = props;
 
   return (
     <StyledButton
       width={width}
       onClick={onClick}
       size={size}
+      squeeze={squeeze}
     >
       {children}
     </StyledButton>

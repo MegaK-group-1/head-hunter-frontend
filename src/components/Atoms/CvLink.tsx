@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 interface Props {
   children: string;
-  width?: string;
   to: string;
   onClick?: MouseEventHandler;
+  squeeze?: boolean;
 }
 
 const StyledCvLink = styled(NavLink)<Props>`
@@ -20,20 +20,25 @@ const StyledCvLink = styled(NavLink)<Props>`
   align-self: center;
   transition: 0.2s linear;
   text-decoration: none;
-  padding: 10px;
-  font-size: 0.9em;
+  padding: 10px 5px;
+  font-size: 0.8em;
   :hover {
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
   }
+  @media (max-width: 700px) {
+    font-size: 0.7em;
+    height: 30px;
+    width: 120px;
+  }
 `;
 
 export function CvLink(props: Props) {
-  const { children, width, to, onClick } = props;
+  const { children, to, onClick, squeeze } = props;
 
   return (
     <StyledCvLink
-      width={width}
+      squeeze={squeeze}
       to={`/student/:${to}`}
       onClick={onClick}
     >
