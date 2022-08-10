@@ -10,6 +10,9 @@ import { UnderTitle } from "../../Atoms/UnderTitle";
 import { CvContactContainer } from "../../Atoms/CvContactContainer";
 import { CvDescription } from "../../Atoms/CvDescription";
 import { CvDetailsInterface } from "../../../utils/types/CvDetailsInterface";
+import avatar from "../../../assets/images/testAvatar.png";
+// TODO: move to API/Services
+const GITHUB_API = "https://github.com/";
 
 interface Props {
   userDetails: CvDetailsInterface;
@@ -17,22 +20,17 @@ interface Props {
 
 export function CvContactSection(props: Props) {
   const { userDetails } = props;
-  const {
-    avatar,
-    firstName,
-    lastName,
-    githubUsername,
-    phone,
-    mail,
-    bio,
-    githubLink,
-  } = userDetails;
+  const { firstName, lastName, githubUsername, phone, mail, bio, githubLink } =
+    userDetails;
 
+  const userAvatar = githubUsername
+    ? `${GITHUB_API}${githubUsername}.png`
+    : avatar;
   return (
     <CvContactContainer>
       <Avatar
         big
-        src={avatar}
+        src={userAvatar}
       />
       <HeadTitle>
         {firstName} {lastName}
