@@ -20,7 +20,7 @@ const PositionWrapper = styled.div`
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
   gap: 5px;
 `;
