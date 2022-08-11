@@ -1,12 +1,5 @@
-import React from "react";
-import { CvOrganism } from "../components/Organism/CvOrganism";
-import { Navbar } from "../components/Organism/Navbar";
+import { CvOrganism } from '../components/Organism/CvOrganism'
 
-export function CvPage() {
-  return (
-    <>
-      <Navbar />
-      <CvOrganism />
-    </>
-  );
+export const CvPage = () => {
+  return <CvOrganism />
 }

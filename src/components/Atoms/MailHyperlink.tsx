@@ -11,19 +11,13 @@ interface Props {
 const StyledHyperLink = styled(Hyperlink)`
   color: #f7f7f7;
   justify-content: flex-start;
-  max-width: 100%;
-  padding-left: 10px;
-  transition: 0.2s linear;
-  :hover {
-    color: yellowgreen;
-  }
 `;
 
 const MailIcon = styled(IoMailSharp)`
   color: #4d4d4d;
 `;
 
-export function MailHyperlink(props: Props) {
+export const MailHyperlink = (props: Props) => {
   const { children, href } = props;
 
   return (
@@ -32,4 +26,4 @@ export function MailHyperlink(props: Props) {
       {children}
     </StyledHyperLink>
   );
-}
+};

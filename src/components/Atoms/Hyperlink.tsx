@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Hyperlink = styled.a`
   font-size: 1em;
@@ -10,4 +10,4 @@ export const Hyperlink = styled.a`
   align-items: center;
   flex-direction: row;
   gap: 5px;
-`;
+`
