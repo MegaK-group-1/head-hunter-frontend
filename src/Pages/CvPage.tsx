@@ -3,7 +3,7 @@ import { CvOrganism } from "../components/Organism/CvOrganism";
 import { Navbar } from "../components/Organism/Navbar";
 import { StudentCvDetails } from "../utils/Context/StudentCvDetails";
 import { CvDetailsInterface } from "../utils/types/CvDetailsInterface";
-import { fetchCvDetails } from "../components/Molecules/AvailableStudents/functions /fetchCvDetails";
+import { fetchCvDetails } from "../components/Molecules/AvailableStudents/functions/fetchCvDetails";
 
 export function CvPage() {
   const context = useContext(StudentCvDetails);

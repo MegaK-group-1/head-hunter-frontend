@@ -5,7 +5,7 @@ import { StudentsUnderNav } from "../Molecules/AvailableStudents/StudentsUnderNa
 import { StudentsFilterHead } from "../Molecules/AvailableStudents/StudentsFilterHead";
 import { StudentDetails } from "../../utils/types/user";
 import { SingleStudentContainer } from "../Molecules/AvailableStudents/SingleStudentContainer";
-import { getAllStudents } from "../Molecules/AvailableStudents/functions /getAllStudents";
+import { getAllStudents } from "../Molecules/AvailableStudents/functions/getAllStudents";
 
 export function AvailableStudentsOrganism() {
   const [students, setStudents] = useState([] as StudentDetails[]);
