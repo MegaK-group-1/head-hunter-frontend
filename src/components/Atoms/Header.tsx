@@ -9,8 +9,8 @@ const StyledHeader = styled.h1`
     margin: 2px;
     font-size: 1.2em;
   }
-`
+`;
 
-export const Header = () => {
-    return <StyledHeader>Witamy w serwisie!</StyledHeader>
+export function Header() {
+  return <StyledHeader>Witamy w serwisie!</StyledHeader>;
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import {UserPageOrganism} from "../../components/Organism/UserPageOrganism";
-import {Header} from "../../components/Atoms/Header";
-import {Footer} from "../../components/Atoms/Footer";
+import React from "react";
 import styled from "styled-components";
+import { Header } from "../../components/Atoms/Header";
+import { Footer } from "../../components/Atoms/Footer";
+import { UserPageOrganism } from "../../components/Organism/UserPageOrganism";
 
 export const UserPageDiv = styled.div`
   width: 100vw;
@@ -11,16 +11,14 @@ export const UserPageDiv = styled.div`
   text-align: center;
   color: white;
   padding: 25px;
-`
+`;
 
-export const UserPage = () => {
-    return (
-        <UserPageDiv>
-            <Header/>
-            <UserPageOrganism/>
-            <Footer/>
-        </UserPageDiv>
-    )
+export function UserPage() {
+  return (
+    <UserPageDiv>
+      <Header />
+      <UserPageOrganism />
+      <Footer />
+    </UserPageDiv>
+  );
 }
-
-
