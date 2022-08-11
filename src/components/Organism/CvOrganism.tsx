@@ -10,7 +10,7 @@ import { PortfolioSection } from "../Molecules/CvPageMolecules/PortfolioSection"
 import { ScrumProjectSection } from "../Molecules/CvPageMolecules/ScrumProjectSection";
 import { FinalExamProjectSection } from "../Molecules/CvPageMolecules/FinalExamProjectSection";
 import { ExpectationsSection } from "../Molecules/CvPageMolecules/ExpectationsSection";
-import { cvDetails, FinalCvInterface } from "../../utils/TestUser";
+import { cvDetails } from "../../utils/TestUser";
 
 const PositionContainer = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ const FlexContainer = styled.div`
 `;
 
 export function CvOrganism() {
-  const [userDetails] = useState(cvDetails as FinalCvInterface);
+  const [userDetails] = useState(cvDetails);
   const {
     base,
     grades,

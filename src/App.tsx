@@ -5,6 +5,7 @@ import { CvPage } from "./Pages/CvPage";
 import { AdminPage } from "./components/Organism/AdminPage";
 import CsvReader from "./Pages/CsvReader/CsvReader";
 import { AddHR } from "./components/Organism/AddHR";
+import { UserPage } from "./Pages/UserPage/UserPage";
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
       <Route
         path="/hr"
         element={<AddHR />}
+      />
+      <Route
+        path="/userPage"
+        element={<UserPage />}
       />
     </Routes>
   );
