@@ -9,6 +9,7 @@ import { AvailableStudentsPage } from "./Pages/AvailableStudentsPage/AvailableSt
 import { ReservedStudentsPage } from "./Pages/ReservedStudentsPage/ReservedStudentsPage";
 import { StudentCvDetails } from "./utils/Context/StudentCvDetails";
 import { CvDetailsInterface } from "./utils/types/CvDetailsInterface";
+import { UserPage } from "./Pages/UserPage/UserPage";
 
 function App() {
   const [student, setStudent] = useState({} as CvDetailsInterface);
@@ -45,6 +46,10 @@ function App() {
         <Route
           path="/hr"
           element={<AddHR />}
+        />
+        <Route
+          path="/userPage"
+          element={<UserPage />}
         />
       </Routes>
     </StudentCvDetails.Provider>
