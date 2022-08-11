@@ -1,12 +1,12 @@
 import React from "react";
 import { CvHeadLabel } from "../../Atoms/CvHeadLabel";
 import { HeadTitle } from "../../Atoms/HeadTitle";
-import { CvGrades } from "../../../utils/TestUser";
 import { CvUnderTitleSection } from "../../Atoms/CvUnderTitleSection";
 import { StarsGradeMolecule } from "./StarsGradeMolecule";
 import { CvFlexContainer } from "../../Atoms/CvFlexContainer";
 import { GridContainer } from "../../Atoms/GridContainer";
 import { UnderTitle } from "../../Atoms/UnderTitle";
+import { CvDetailsInterface } from "../../../utils/types/CvDetailsInterface";
 
 enum UnderTitleOptions {
   courseCompletion = "Ocena przejścia kursu",
@@ -16,16 +16,16 @@ enum UnderTitleOptions {
 }
 
 interface Props {
-  userGrades: CvGrades;
+  userGrades: CvDetailsInterface;
 }
 
 export function GradesSection(props: Props) {
   const { userGrades } = props;
   const {
     courseCompletion,
-    courseEngagment,
-    projectDegree,
     teamProjectDegree,
+    projectDegree,
+    courseEngagment,
   } = userGrades;
 
   return (

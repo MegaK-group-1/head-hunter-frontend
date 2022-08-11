@@ -5,7 +5,7 @@ import { CvUnderTitleSection } from "../../Atoms/CvUnderTitleSection";
 import { Paragraph } from "../../Atoms/Paragraph";
 
 interface Props {
-  experience: string;
+  experience: string | null;
 }
 export function ExperienceSection(props: Props) {
   const { experience } = props;

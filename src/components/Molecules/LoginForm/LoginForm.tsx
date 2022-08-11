@@ -1,12 +1,13 @@
 import React, { FormEvent, useState } from "react";
 import styled from "styled-components";
+// @ts-ignore
+import { UserLoginReq } from "types";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { ReusableInput } from "../../Atoms/ReusableInput";
 import { StyledLink } from "../../Atoms/Link";
 import { Button, ButtonSize } from "../../Atoms/Button";
 import { Paragraph } from "../../Atoms/Paragraph";
 import { api } from "../../../utils/api/api";
-import { UserLoginReq } from "types";
-import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const StyledForm = styled.form`
   display: flex;
@@ -33,7 +34,8 @@ const OperationStatusInfoText = styled.p`
 
 const PositionWrapper = styled.div`
   width: 100%;
-  padding: 25px 5px;
+  height: 50px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,12 +49,13 @@ const handleClickOnLogin = async (
   nav: NavigateFunction,
 ) => {
   const response = JSON.parse(await api.sendLoginReq(data));
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   response.error && responseInfoSetter("Podane dane są niepoprawne !!!");
-  //TODO Change this path below that it will redirect logged user to its account page.
+  // TODO Change this path below that it will redirect logged user to its account page.
   nav("./");
 };
 
-export const LoginForm = () => {
+export function LoginForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
@@ -108,4 +111,4 @@ export const LoginForm = () => {
       </StyledForm>
     </>
   );
-};
+}

@@ -4,8 +4,9 @@ import styled from "styled-components";
 interface Props {
   children: string;
   onClick?: MouseEventHandler;
-  size?: ButtonSize;
+  size: ButtonSize;
   width?: string;
+  squeeze?: boolean;
 }
 
 export enum ButtonSize {
@@ -25,21 +26,35 @@ const StyledButton = styled.button<Props>`
   border: none;
   align-self: center;
   transition: 0.2s linear;
+  padding: 5px;
+  font-size: 0.7em;
 
   :hover {
     box-shadow: 0 0 1px 1px white;
     cursor: pointer;
   }
+
+  @media (max-width: 750px) {
+    letter-spacing: ${({ squeeze }) => (squeeze ? "0" : "2px")};
+    font-size: ${({ squeeze }) => (squeeze ? "0.7em" : "auto")};
+    height: ${({ squeeze }) => (squeeze ? "30px" : "39px")};
+    width: ${({ squeeze, width }) => (squeeze ? "120px" : width)};
+  }
+
+  @media (max-width: 800px) {
+    font-size: ${({ squeeze }) => (squeeze ? "0.75em" : "auto")};
+  }
 `;
 
 export function Button(props: Props) {
-  const { children, onClick, size = ButtonSize.medium, width } = props;
+  const { children, onClick, size, width, squeeze } = props;
 
   return (
     <StyledButton
       width={width}
       onClick={onClick}
       size={size}
+      squeeze={squeeze}
     >
       {children}
     </StyledButton>

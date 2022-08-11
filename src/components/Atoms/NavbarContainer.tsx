@@ -11,5 +11,5 @@ export const NavbarContainer = styled.section`
   width: 100vw;
   margin-bottom: 25px;
   position: relative;
-  z-index: 3;
+  z-index: 11;
 `;

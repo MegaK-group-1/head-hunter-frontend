@@ -7,6 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     font-family: Catamaran,sans-serif;
+    ::-webkit-scrollbar {
+      width: 1px;
+    }
   }
   
   body {
@@ -15,4 +18,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #222224;
   }
   
-  `;
+html{
+  font-family: Caterman,sans-serif;
+}
+
+`;

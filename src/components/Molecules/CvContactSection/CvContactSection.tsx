@@ -9,37 +9,28 @@ import { CvPositioner } from "../../Atoms/CvPositioner";
 import { UnderTitle } from "../../Atoms/UnderTitle";
 import { CvContactContainer } from "../../Atoms/CvContactContainer";
 import { CvDescription } from "../../Atoms/CvDescription";
-import { CvDetailsInterface } from "../../../utils/types/CvDetailsInterface";
-import avatar from "../../../assets/images/testAvatar.png";
-// TODO: move to API/Services
-const GITHUB_API = "https://github.com/";
+import { CvBase } from "../../../utils/TestUser";
 
 interface Props {
-  userDetails: CvDetailsInterface;
+  userDetails: CvBase;
 }
 
 export function CvContactSection(props: Props) {
   const { userDetails } = props;
-  const { firstName, lastName, githubUsername, phone, mail, bio, githubLink } =
-    userDetails;
+  const { avatar, name, githubLink, tel, email, description } = userDetails;
 
-  const userAvatar = githubUsername
-    ? `${GITHUB_API}${githubUsername}.png`
-    : avatar;
   return (
     <CvContactContainer>
       <Avatar
         big
-        src={userAvatar}
+        src={avatar}
       />
-      <HeadTitle>
-        {firstName} {lastName}
-      </HeadTitle>
-      <GithubHyperlink href={githubLink}>{githubUsername}</GithubHyperlink>
+      <HeadTitle>{name}</HeadTitle>
+      <GithubHyperlink href={githubLink}>{name}</GithubHyperlink>
 
       <CvPositioner height="15%">
-        <TelHyperlink href={phone}>{phone}</TelHyperlink>
-        <MailHyperlink href={mail}>{mail}</MailHyperlink>
+        <TelHyperlink href={tel}>{tel}</TelHyperlink>
+        <MailHyperlink href={email}>{email}</MailHyperlink>
       </CvPositioner>
 
       <CvPositioner
@@ -47,7 +38,7 @@ export function CvContactSection(props: Props) {
         height="70%"
       >
         <UnderTitle color="#4D4D4D">O mnie</UnderTitle>
-        <CvDescription>{bio}</CvDescription>
+        <CvDescription>{description}</CvDescription>
       </CvPositioner>
 
       <CvPositioner height="30%">

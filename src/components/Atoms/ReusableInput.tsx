@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 import React from "react";
-import { UserLoginReq } from 'types';
+// @ts-ignore
+import { UserLoginReq } from "types";
 
 const Input = styled.input`
   width: 18vw;
@@ -11,22 +12,29 @@ const Input = styled.input`
   margin: 8px;
   padding: 2px 0 2px 15px;
   color: white;
-`
+`;
 interface Props {
-    type: string;
-    onChangeHandler: React.Dispatch<React.SetStateAction<UserLoginReq>>;
-    placeholder: string;
-    autoComplete?: 'on' | 'off'
+  type: string;
+  onChangeHandler: React.Dispatch<React.SetStateAction<UserLoginReq>>;
+  placeholder: string;
+  autoComplete?: "on" | "off";
 }
 
-export const ReusableInput = (props: Props ) =>{
-    return <Input
-        type={props.type}
-        onChange={event => props.onChangeHandler(prevState => {
-            return {
-                ...prevState,
-                [props.type]:event.target.value,
-            }
-        })}
+export function ReusableInput(props: Props) {
+  const { type, autoComplete, onChangeHandler, placeholder } = props;
+  return (
+    <Input
+      type={type}
+      autoComplete={autoComplete}
+      placeholder={placeholder}
+      onChange={(event) =>
+        onChangeHandler((prevState: any) => {
+          return {
+            ...prevState,
+            [type]: event.target.value,
+          };
+        })
+      }
     />
+  );
 }
